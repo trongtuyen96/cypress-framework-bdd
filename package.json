@@ -4,7 +4,9 @@
   "description": "An automated testing framework based on CypressIO",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:run": "npx cypress run --browser chrome",
+    "cypress:open": "npx cypress open"
   },
   "repository": {
     "type": "git",
@@ -16,7 +18,10 @@
     "url": "https://github.com/trongtuyen96/cypress-framework/issues"
   },
   "homepage": "https://github.com/trongtuyen96/cypress-framework#readme",
-  "dependencies": {
-    "cypress": "^7.5.0"
+  "dependencies": {},
+  "devDependencies": {
+    "cypress": "^7.5.0",
+    "cypress-cucumber-preprocessor": "^4.1.2",
+    "cypress-xpath": "^1.6.2"
   }
 }
