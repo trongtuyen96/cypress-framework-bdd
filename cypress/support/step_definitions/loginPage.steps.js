@@ -1,32 +1,32 @@
 import {Given, Then, When, And} from 'cypress-cucumber-preprocessor/steps';
 import Login from "../pages/loginPage.page"
 
-const login =  new Login();
+const loginpage =  new Login();
 
 Given('user launches the PHPTravels website', ()=> {
-    login.launchWebsite();
+    loginpage.launchWebsite();
 });
 
 Then('user click on MY ACCOUNT to login', ()=> {
-    login.clickMyAccount();
+    loginpage.clickMyAccount();
 });
 
 When('user click on Login', ()=> {
-    login.clickLoginLink();
+    loginpage.clickLoginLink();
 });
 
 Then('user navigates to Login page', ()=> {
-    login.verifyLoginHeader();
+    loginpage.verifyLoginHeader();
 });
 
 And('user enters the Email address',()=> {
-    login.enterEmail();
+    loginpage.enterEmail();
 });
 
 And('user enters the Password',()=> {
-    login.enterPassword();
+    loginpage.enterPassword();
 });
 
 Then('user click on Login button', ()=> {
-    login.clickLoginButton()
+    loginpage.clickLoginButton()
 });
