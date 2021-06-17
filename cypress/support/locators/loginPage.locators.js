@@ -1,7 +1,20 @@
-export const LOGIN_HEADER = '//h3[text()="Login"]';
+const LOGIN_LINK = '//button[@data-testid="signUp.switchToSignUp"]';
 
-export const EMAIL_INPUT_FIELD = '//span[text()="Email"]/preceding-sibling::input';
+const LOGIN_EMAIL_BTN = '//button[.="Log in with Email"]';
 
-export const PASSWORD_INPUT_FIELD = '//span[text()="Password"]/preceding-sibling::input';
+const EMAIL_INPUT = '//input[contains(@id,"emailInput")]';
 
-export const LOGIN_BTN = '//button[@type="submit"][text()="Login"]';
+const PASSWORD_INPUT = '//input[contains(@id,"passwordInput")]';
+
+const LOGIN_BTN = '//button[contains(.,"Log In") and@data-testid = "buttonElement"]';
+
+const SEARCH_INPUT = '//input[@placeholder="Search"]';
+
+module.exports = {
+    LOGIN_LINK,
+    LOGIN_EMAIL_BTN,
+    EMAIL_INPUT,
+    PASSWORD_INPUT,
+    LOGIN_BTN,
+    SEARCH_INPUT
+}

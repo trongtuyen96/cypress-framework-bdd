@@ -1,11 +1,12 @@
-Feature: PHPTravels booking site features
+Feature: Automatedtestingwithtuyen.com login feature
 
     Scenario: Verify if user is able to login
 
-        Given user launches the PHPTravels website
-        Then user click on MY ACCOUNT to login
-        When user click on Login
-        Then user navigates to Login page
-        And user enters the Email address
+        Given user launches the ATWT website
+        When user click on Log In to login
+        And user click on Log In with Email
+        And user navigates to Login page
+        And user enters the Email
         And user enters the Password
-        When user click on Login button
+        And user click on Log In button
+        Then user login successfully

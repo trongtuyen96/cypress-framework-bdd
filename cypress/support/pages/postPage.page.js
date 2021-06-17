@@ -1,6 +1,6 @@
 class HotelSearchResults{
     getHotelSearchResultPageElements(){
-        return require ('../locators/hotelsSearchResults.locators')
+        return require ('../locators/postPage.locators')
     }
 
     verifyHotelResultHeader(){

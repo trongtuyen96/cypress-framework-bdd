@@ -8,14 +8,14 @@ class Login {
     }
 
     launchWebsite() {
-        cy.visit("www.phptravels.net");
+        cy.visit("https://www.automatedtestingwithtuyen.com");
     }
 
     clickMyAccount(){
         cy.xpath(this.getHomePageElements().HOMEPAGE_MYACCOUNT_BTN).wait(1000).click();
     }
 
-    clickLoginLink(){
+    clickLogin(){
         cy.xpath(this.getHomePageElements().HOMEPAGE_LOGIN_BTN).wait(1000).click();
     }
 
