@@ -1,12 +1,12 @@
-import {Given, Then, When, And} from 'cypress-cucumber-preprocessor/steps';
-import postpage from '../pages/postPage.page'
+import { Given, Then, When, And } from 'cypress-cucumber-preprocessor/steps';
+import PostPage from '../pages/postPage.page';
 
-const postpage = new Post();
+const postpage = new PostPage();
 
-Then('user navigates to hotel result page',()=> {
-    postpage.verifyHotelResultHeader();
+Then('user sees the post with title contains {string}', (keyword) => {
+    postpage.verifyPostlResultHeader(keyword);
 });
 
-Then('user sees the hotel {string} in {string} city', (hotelname, city)=> {
-    postpage.checkHotelNameResult(hotelname, city);
+And('user sees the post with author name is {string}', (authorname) => {
+    postpage.verifyAuthor(authorname);
 });

@@ -1,32 +1,39 @@
-import {Given, Then, When, And} from 'cypress-cucumber-preprocessor/steps';
-import Login from "../pages/loginPage.page"
+import { Given, Then, When, And } from 'cypress-cucumber-preprocessor/steps';
+import LoginPage from '../pages/loginPage.page';
+import HomePage from '../pages/homePage.page';
 
-const loginpage =  new Login();
+const loginpage = new LoginPage();
+const homepage = new HomePage();
 
-Given('user launches the PHPTravels website', ()=> {
-    loginpage.launchWebsite();
+Given('user launches the ATWT website', () => {
+    homepage.launchWebsite();
 });
 
-Then('user click on MY ACCOUNT to login', ()=> {
-    loginpage.clickMyAccount();
-});
-
-When('user click on Login', ()=> {
+When('user click on Log In to login', () => {
+    homepage.clickLoginBtn();
     loginpage.clickLoginLink();
 });
 
-Then('user navigates to Login page', ()=> {
-    loginpage.verifyLoginHeader();
+And('user click on Log In with Email', () => {
+    loginpage.clickLoginWithEmailBtn();
 });
 
-And('user enters the Email address',()=> {
+Then('user navigates to Login page', () => {
+    // loginpage.verifyLoginHeader();
+});
+
+And('user enters the Email', () => {
     loginpage.enterEmail();
 });
 
-And('user enters the Password',()=> {
+And('user enters the Password', () => {
     loginpage.enterPassword();
 });
 
-Then('user click on Login button', ()=> {
-    loginpage.clickLoginButton()
+And('user click on Log In button', () => {
+    loginpage.clickLoginBtn()
+});
+
+Then('user login successfully', () => {
+    // loginpage.clickLoginBtn()
 });

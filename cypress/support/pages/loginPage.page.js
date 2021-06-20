@@ -1,51 +1,42 @@
-class Login {
-    getHomePageElements(){
-        return require('../locators/homePage.locators');
-    }
-
-    getLoginPageElements(){
+class LoginPage {
+    getLoginPageElements() {
         return require('../locators/loginPage.locators');
     }
 
-    launchWebsite() {
-        cy.visit("https://www.automatedtestingwithtuyen.com");
+    clickLoginLink() {
+        cy.xpath(this.getLoginPageElements().LOGIN_LINK).click();
+        return this;
     }
 
-    clickMyAccount(){
-        cy.xpath(this.getHomePageElements().HOMEPAGE_MYACCOUNT_BTN).wait(1000).click();
+    clickLoginWithEmailBtn() {
+        cy.xpath(this.getLoginPageElements().LOGIN_EMAIL_BTN).click();
+        return this;
     }
 
-    clickLogin(){
-        cy.xpath(this.getHomePageElements().HOMEPAGE_LOGIN_BTN).wait(1000).click();
-    }
-
-    verifyLoginHeader(){
-        cy.wait(1000)
-            .xpath(this.getLoginPageElements().LOGIN_HEADER).invoke('text')
-            .then((logindeaderTxt)=>{
-                expect(logindeaderTxt.trim()).to.equal("Login");
-            })
-    }
-
-    enterEmail(){
+    enterEmail() {
         cy.fixture('testdata.json').then((td) => {
-            cy.xpath(this.getLoginPageElements().EMAIL_INPUT_FIELD)
-                .click(cy.xpath('//span[text()="Email"]'))
+            cy.xpath(this.getLoginPageElements().EMAIL_INPUT)
+                .click()
+                .clear()
                 .type(td.validemail);
         });
+        return this;
     }
 
-    enterPassword(){
+    enterPassword() {
         cy.fixture('testdata.json').then((td) => {
-            cy.xpath(this.getLoginPageElements().PASSWORD_INPUT_FIELD)
-                .click(cy.xpath('//span[text()="Password"]'))
+            cy.xpath(this.getLoginPageElements().PASSWORD_INPUT)
+                .click()
+                .clear()
                 .type(td.validpassword);
         });
+        return this;
     }
 
-    clickLoginButton(){
+    clickLoginBtn() {
         cy.xpath(this.getLoginPageElements().LOGIN_BTN).click();
+        return this;
     }
 }
 
-module.exports = Login;
+module.exports = LoginPage;

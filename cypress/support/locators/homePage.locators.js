@@ -18,6 +18,8 @@ const CATE_FRAMEWORKS_BTN = '//a[.="FRAMEWORKS"]';
 
 const SEARCH_BTN = '//div[@aria-label="Search"]';
 
+const SEARCH_BOX = '//input[@placeholder="Search"]'
+
 module.exports = {
     LOGIN_BTN,
     HOME_BTN,
@@ -28,5 +30,6 @@ module.exports = {
     CATE_PATTERNS_BTN,
     CATE_TOOLS_BTN,
     CATE_FRAMEWORKS_BTN,
-    SEARCH_BTN
+    SEARCH_BTN,
+    SEARCH_BOX
 }

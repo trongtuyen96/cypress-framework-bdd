@@ -1,62 +1,88 @@
-class Homepage {
-    getHomePageElements(){
+class HomePage {
+    getHomePageElements() {
         return require('../locators/homePage.locators')
     }
 
-    clickHotelsBtn(){
-        cy.xpath(this.getHomePageElements().HOTELS_BTN).wait(1000).click();
+    launchWebsite() {
+        cy.visit("https://www.automatedtestingwithtuyen.com");
     }
 
-    clickFlightsBtn(){
-        cy.xpath(this.getHomePageElements().FLIGHTS_BTN).wait(1000).click();
+    clickLoginBtn() {
+        cy.xpath(this.getHomePageElements().LOGIN_BTN).click();
+        return this;
     }
 
-    clickBoatsBtn(){
-        cy.xpath(this.getHomePageElements().BOATS_BTN).wait(1000).click();
+    clickHomeBtn() {
+        cy.xpath(this.getHomePageElements().HOME_BTN).click();
+        return this;
     }
 
-    clickRentalsBtn(){
-        cy.xpath(this.getHomePageElements().RENTALS_BTN).wait(1000).click();
+    clickForumBtn() {
+        cy.xpath(this.getHomePageElements().FORUM_BTN).click();
+        return this;
     }
 
-    clickToursBtn(){
-        cy.xpath(this.getHomePageElements().TOURS_BTN).wait(1000).click();
+    clickAuthorBtn() {
+        cy.xpath(this.getHomePageElements().AUTHOR_BTN).click();
+        return this;
     }
 
-    clickCarsBtn(){
-        cy.xpath(this.getHomePageElements().CARS_BTN).wait(1000).click();
+    clickUserBtn() {
+        cy.xpath(this.getHomePageElements().USER_BTN).click();
+        return this;
     }
 
-    clickVisaBtn(){
-        cy.xpath(this.getHomePageElements().VISA_BTN).wait(1000).click();
+    clickCateAllBtn() {
+        cy.xpath(this.getHomePageElements().CATE_ALL_BTN).click();
+        return this;
     }
 
-    enterHotelDestination(destination){
-        cy.xpath(this.getHomePageElements().DESTINATION_SEARCH_INPUT_FIELD).wait(1000)
-            .type(destination)
-            .wait(1000)
-            .xpath('//div[text()="Locations"]/following-sibling::ul/li[1]/div/span[text()="'+destination+'"]').click()
+    clickCatePatternsBtn() {
+        cy.xpath(this.getHomePageElements().CATE_PATTERNS_BTN).click();
+        return this;
     }
 
-    enterHotelCheckinDate(checkindate){
-        cy.xpath(this.getHomePageElements().HOTELS_CHECKIN_INPUT)
-            .click()
+    clickCatePatternsBtn() {
+        cy.xpath(this.getHomePageElements().CATE_PATTERNS_BTN).click();
+        return this;
+    }
+
+    clickCateToolsBtn() {
+        cy.xpath(this.getHomePageElements().CATE_TOOLS_BTN).click();
+        return this;
+    }
+
+    clickCateFrameworksBtn() {
+        cy.xpath(this.getHomePageElements().CATE_FRAMEWORKS_BTN).click();
+        return this;
+    }
+
+    clickSearchBtn() {
+        cy.xpath(this.getHomePageElements().SEARCH_BTN).click();
+        return this;
+    }
+
+    enterKeywordSearch(keyword) {
+        this.clickSearchBtn()
+        cy.xpath(this.getHomePageElements().SEARCH_BOX)
             .clear()
-            .type(checkindate)
+            .type(keyword)
+            .type('{enter}')
+        return this;
     }
 
-    enterHotelCheckoutDate(checkoutdate){
-        cy.xpath(this.getHomePageElements().HOTELS_CHECKOUT_INPUT)
-            .click()
-            .clear()
-            .type(checkoutdate)
+    clickOnTitlePost(keyword) {
+        cy.xpath('//h2[contains(@class,"post-title blog-hover")]').click();
+        return this;
     }
 
-    clickHotelSearchBtn(){
-        cy.xpath(this.getHomePageElements().HOTELS_SEARCH_BTN).wait(1000).click();
+    verifyFirstResultPostSearch(keyword) {
+        cy.xpath('//h2[contains(@class,"post-title blog-hover")]').invoke('text')
+            .then((postTitle) => {
+                expect(postTitle.trim()).to.include(keyword);
+            })
+        return this;
     }
-
-
 }
 
-module.exports = Homepage;
+module.exports = HomePage;
