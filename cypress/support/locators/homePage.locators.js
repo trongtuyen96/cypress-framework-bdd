@@ -1,4 +1,4 @@
-const LOGIN_BTN = '//span[.="Log In"]';
+const LOGIN_BTN = '//button[.="Log In"]';
 
 const HOME_BTN = '//p[.="HOME"]';
 
@@ -18,7 +18,11 @@ const CATE_FRAMEWORKS_BTN = '//a[.="FRAMEWORKS"]';
 
 const SEARCH_BTN = '//div[@aria-label="Search"]';
 
-const SEARCH_BOX = '//input[@placeholder="Search"]'
+const SEARCH_BOX = '//input[@placeholder="Search"]';
+
+const POST_TITLE_SEARCH = '//a[contains(@class,"blog-link-hover")]';
+
+const POST_TITLE_LINK = '//h2[contains(@class,"post-title blog-hover")]'
 
 module.exports = {
     LOGIN_BTN,
@@ -31,5 +35,7 @@ module.exports = {
     CATE_TOOLS_BTN,
     CATE_FRAMEWORKS_BTN,
     SEARCH_BTN,
-    SEARCH_BOX
+    SEARCH_BOX,
+    POST_TITLE_SEARCH,
+    POST_TITLE_LINK
 }

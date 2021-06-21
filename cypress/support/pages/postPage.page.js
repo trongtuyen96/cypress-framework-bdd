@@ -6,7 +6,7 @@ class PostPage {
     verifyPostlResultHeader(keyword) {
         cy.xpath(this.getPostPageElements().POST_PAGE_HEADER).invoke('text')
             .then((postheader) => {
-                expect(postheader.trim()).to.include(keyword);
+                expect(postheader.trim().toLowerCase()).to.include(keyword.toLowerCase());
             });
         return this;
     }
@@ -14,7 +14,7 @@ class PostPage {
     verifyAuthor(authorname) {
         cy.xpath(this.getPostPageElements().POST_AUTHOR).invoke('text')
             .then((postauthor) => {
-                expect(postauthor.trim()).to.equal(authorname);
+                expect(postauthor.trim().toLowerCase()).to.equal(authorname.toLowerCase());
             });
         return this;
     }

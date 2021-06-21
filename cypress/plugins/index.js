@@ -14,6 +14,7 @@
 
 const cucumber = require('cypress-cucumber-preprocessor').default
 
+const path = require('path');
 
 /**
  * @type {Cypress.PluginConfig}
@@ -25,4 +26,16 @@ module.exports = (on, config) => {
 
   // include cucumber processor
   on('file:preprocessor', cucumber())
+
+  // for cypress-terminal-report
+  const options = {
+    printLogsToFile: 'always',
+    printLogsToConsole: 'always',
+    outputRoot: config.projectRoot + '/cypress/logs/',
+    specRoot: path.relative(config.fileServerFolder, config.integrationFolder),
+    outputTarget: {
+      'cypress-logs|txt': 'txt',
+    }
+  };
+  require('cypress-terminal-report/src/installLogsPrinter')(on, options);
 }

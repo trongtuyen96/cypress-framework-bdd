@@ -4,6 +4,7 @@ Feature: Automatedtestingwithtuyen.com login feature
 
         Given user launches the ATWT website
         When user click on Log In to login
+        And user click Log In link to swith to log in
         And user click on Log In with Email
         And user navigates to Login page
         And user enters the Email

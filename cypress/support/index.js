@@ -26,3 +26,9 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     // failing the test
     return false
 });
+
+const options = {
+    collectTypes : ['cy:log', 'cy:xhr', 'cy:request', 'cy:route', 'cy:command']
+};
+
+require('cypress-terminal-report/src/installLogsCollector')(options);

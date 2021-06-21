@@ -11,8 +11,11 @@ Given('user launches the ATWT website', () => {
 
 When('user click on Log In to login', () => {
     homepage.clickLoginBtn();
-    loginpage.clickLoginLink();
 });
+
+And('user click Log In link to swith to log in', () => {
+    loginpage.clickLoginLink();
+})
 
 And('user click on Log In with Email', () => {
     loginpage.clickLoginWithEmailBtn();

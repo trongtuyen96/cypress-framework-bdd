@@ -1,6 +1,6 @@
 {
     "validemail" : "cypresstestuser@mailinator.com",
-    "validpassword": "cypressuser",
+    "validpassword": "123456",
     "firstname": "cypresstest",
     "lastname": "user"
   }

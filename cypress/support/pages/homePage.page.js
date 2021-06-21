@@ -8,7 +8,7 @@ class HomePage {
     }
 
     clickLoginBtn() {
-        cy.xpath(this.getHomePageElements().LOGIN_BTN).click();
+        cy.xpath(this.getHomePageElements().LOGIN_BTN).wait(5000).click();
         return this;
     }
 
@@ -58,28 +58,27 @@ class HomePage {
     }
 
     clickSearchBtn() {
-        cy.xpath(this.getHomePageElements().SEARCH_BTN).click();
+        cy.xpath(this.getHomePageElements().SEARCH_BTN).wait(2000).click();
         return this;
     }
 
     enterKeywordSearch(keyword) {
-        this.clickSearchBtn()
         cy.xpath(this.getHomePageElements().SEARCH_BOX)
-            .clear()
+            .wait(2000)
             .type(keyword)
             .type('{enter}')
         return this;
     }
 
     clickOnTitlePost(keyword) {
-        cy.xpath('//h2[contains(@class,"post-title blog-hover")]').click();
+        cy.xpath(this.getHomePageElements().POST_TITLE_SEARCH).click();
         return this;
     }
 
     verifyFirstResultPostSearch(keyword) {
-        cy.xpath('//h2[contains(@class,"post-title blog-hover")]').invoke('text')
+        cy.xpath(this.getHomePageElements().POST_TITLE_LINK).invoke('text')
             .then((postTitle) => {
-                expect(postTitle.trim()).to.include(keyword);
+                expect(postTitle.trim().toLowerCase()).to.include(keyword.trim().toLowerCase());
             })
         return this;
     }
