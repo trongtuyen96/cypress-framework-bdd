@@ -1,6 +1,6 @@
 Feature: Rest API POST call
 
-    Scenario: Create User
+    Scenario: Create Car
 
         Given I set Content-Type header to application/json value
         And I set request body to {"type": "Super Bike","speed": 330,"model": "BMW M1000RR","color": "White Blue","userID": "5e958257bcb48a0004d62da6"}

@@ -1,6 +1,6 @@
 Feature: Rest API GET call
 
-  Scenario Outline: Get user details by username
+  Scenario Outline: Get user by id
 
     Given I set Content-Type header to application/json value
     Then I make GET call to <url>
