@@ -30,11 +30,12 @@ module.exports = (on, config) => {
   // for cypress-terminal-report
   const options = {
     printLogsToFile: 'always',
-    printLogsToConsole: 'always',
+    printLogsToConsole: 'onFail',
     outputRoot: config.projectRoot + '/cypress/logs/',
     specRoot: path.relative(config.fileServerFolder, config.integrationFolder),
     outputTarget: {
       'cypress-logs|txt': 'txt',
+      'cypress-logs|json': 'json'
     }
   };
   require('cypress-terminal-report/src/installLogsPrinter')(on, options);
