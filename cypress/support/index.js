@@ -27,6 +27,15 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     return false
 });
 
+Cypress.Server.defaults({
+    delay: 500,
+    force404: false,
+    ignore: (xhr) => {
+        // handle custom logic for filtering XHR requests
+        return true;
+    }
+});
+
 const options = {
     collectTypes : ['cy:log', 'cy:xhr', 'cy:request', 'cy:route', 'cy:command']
 };

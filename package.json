@@ -8,6 +8,13 @@
     "cypress:run": "npx cypress run --browser chrome",
     "cypress:open": "npx cypress open"
   },
+  "keywords": [
+    "WebUI",
+    "RestApi",
+    "Cypress",
+    "BDD",
+    "Cucumber"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/trongtuyen96/cypress-framework.git"
