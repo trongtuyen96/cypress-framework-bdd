@@ -35,3 +35,7 @@ npx cypress run --browser browser
 ```bash
 npx cypress run --spec cypress/integration/{featurefile.feature}
 ```
+
+```bash
+npx cypress run --spec api-GET.feature --browser chrome --no-exit
+```
