@@ -52,9 +52,11 @@ docker images
 ```bash
 docker run -d -p 3000:3000 --name atwtapi atwt-api
 ```
+
 -d for backlground mode (not attached to current session)
 -p for specfiying in and out ports
 --name for container name
+
 ###### Docker list containers
 ```bash
 docker container ls
