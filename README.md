@@ -35,3 +35,45 @@ npx cypress run --browser browser
 ```bash
 npx cypress run --spec cypress/integration/{featurefile.feature}
 ```
+
+```bash
+npx cypress run --spec api-GET.feature --browser chrome --no-exit
+```
+#### Docker
+###### Docker build image
+```bash
+docker build . -t atwt-api
+```
+###### Docker list images
+```bash
+docker images
+```
+###### Docker run
+```bash
+docker run -d -p 3000:3000 --name atwtapi atwt-api
+
+-d for background mode (not attached to current session)
+-p for specfiying in and out ports
+--name for specifying container name
+```
+
+###### Docker list containers
+```bash
+docker container ls
+```
+###### Docker stop container
+```bash
+docker stop atwtapi
+```
+###### Docker remove container
+```bash
+docker rm atwtapi
+```
+###### Docker remove images
+```bash
+docker rmi atwt-api
+```
+
+cy.wait is recommended to be removed as cy.get already have its own wait.
+
+Please head to document for info:
