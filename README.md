@@ -73,3 +73,7 @@ docker rm atwtapi
 ```bash
 docker rmi atwt-api
 ```
+
+cy.wait is recommended to be removed as cy.get already have its own wait.
+
+Please head to document for info:
