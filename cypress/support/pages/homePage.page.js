@@ -4,11 +4,17 @@ class HomePage {
     }
 
     launchWebsite() {
-        cy.visit("https://www.automatedtestingwithtuyen.com");
+        cy.visit("/");
+
+        // cy.get('.some-element-in-your-app-that-only-exists-once-page-has-loaded', { timeout: 30000 })
+
+        // Special case: Wait for page fully loaded and rendered
+        cy.wait(10000);
+        return this;
     }
 
     clickLoginBtn() {
-        cy.xpath(this.getHomePageElements().LOGIN_BTN).wait(5000).click();
+        cy.xpath(this.getHomePageElements().LOGIN_BTN).click();
         return this;
     }
 
@@ -58,13 +64,12 @@ class HomePage {
     }
 
     clickSearchBtn() {
-        cy.xpath(this.getHomePageElements().SEARCH_BTN).wait(2000).click();
+        cy.xpath(this.getHomePageElements().SEARCH_BTN).click();
         return this;
     }
 
     enterKeywordSearch(keyword) {
         cy.xpath(this.getHomePageElements().SEARCH_BOX)
-            .wait(2000)
             .type(keyword)
             .type('{enter}')
         return this;

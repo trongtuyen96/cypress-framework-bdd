@@ -1,1 +1,7 @@
-{}
+{
+    "baseUrl": "https://www.automatedtestingwithtuyen.com",
+    "env": {
+        "username": "a",
+        "password": "b"
+    }
+}
