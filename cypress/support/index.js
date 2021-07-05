@@ -15,6 +15,7 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import 'cypress-mochawesome-reporter/register';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
@@ -36,8 +37,8 @@ Cypress.Server.defaults({
     }
 });
 
-const options = {
-    collectTypes : ['cy:log', 'cy:xhr', 'cy:request', 'cy:route', 'cy:command']
-};
+// const options = {
+//     collectTypes : ['cy:log', 'cy:xhr', 'cy:request', 'cy:route', 'cy:command']
+// };
 
-require('cypress-terminal-report/src/installLogsCollector')(options);
+// require('cypress-terminal-report/src/installLogsCollector')(options);
