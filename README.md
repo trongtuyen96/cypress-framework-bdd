@@ -1,6 +1,9 @@
 # cypress-framework-bdd
 An automated testing framework based on CypressIO with Behaviour-Driven Development
 
+## Changelogs
+- 05/07/2021: Add cypress-mochawesome-reporter for generating HTMl report
+
 ## Installation
 
 Use npm to install the dependencies
@@ -77,3 +80,5 @@ docker rmi atwt-api
 cy.wait is recommended to be removed as cy.get already have its own wait.
 
 Please head to document for info:
+
+npx cypress run --spec "cypress/integration/webtest/Login.feature,cypress/integration/webtest/PostSearch.feature"  --browser chrome
