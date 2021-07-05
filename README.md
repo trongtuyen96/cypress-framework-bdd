@@ -1,5 +1,5 @@
-# cypress-framework
-An automated testing framework based on CypressIO
+# cypress-framework-bdd
+An automated testing framework based on CypressIO with Behaviour-Driven Development
 
 ## Installation
 
