@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="Mocha Tests" time="14.2990" tests="1" failures="0">
-  <testsuite name="Root Suite" timestamp="2021-07-06T16:09:19" tests="0" file="cypress/integration/webtest/Login.feature" time="0.0000" failures="0">
-  </testsuite>
-  <testsuite name="Automatedtestingwithtuyen.com login feature" timestamp="2021-07-06T16:09:19" tests="1" time="14.2990" failures="0">
-    <testcase name="Automatedtestingwithtuyen.com login feature Verify if user is able to login" time="14.2990" classname="Verify if user is able to login">
-    </testcase>
-  </testsuite>
-</testsuites>
