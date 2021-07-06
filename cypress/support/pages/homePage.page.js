@@ -76,12 +76,12 @@ class HomePage {
     }
 
     clickOnTitlePost(keyword) {
-        cy.xpath(this.getHomePageElements().POST_TITLE_SEARCH).click();
+        cy.xpath(this.getHomePageElements().POST_TITLE_SEARCH, { timeout: 10000 }).click();
         return this;
     }
 
     verifyFirstResultPostSearch(keyword) {
-        cy.xpath(this.getHomePageElements().POST_TITLE_LINK).invoke('text')
+        cy.xpath(this.getHomePageElements().POST_TITLE_LINK, { timeout: 10000 }).invoke('text')
             .then((postTitle) => {
                 expect(postTitle.trim().toLowerCase()).to.include(keyword.trim().toLowerCase());
             })

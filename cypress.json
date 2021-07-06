@@ -4,13 +4,19 @@
         "username": "a",
         "password": "b"
     },
-    "reporter": "cypress-mochawesome-reporter",
+    "reporter": "cypress-multi-reporters",
     "reporterOptions": {
-        "reportDir": "cypress/reports",
-        "charts": true,
-        "reportPageTitle": "My Test Suite",
-        "embeddedScreenshots": true,
-        "inlineAssets": true
+        "reporterEnabled": "cypress-mochawesome-reporter, mocha-junit-reporter",
+        "mochaJunitReporterReporterOptions": {
+            "mochaFile": "cypress/reports/junit/[hash].xml"
+        },
+        "cypressMochawesomeReporterReporterOptions": {
+            "charts": true,
+            "reportPageTitle": "My Test Suite",
+            "reportDir": "cypress/reports/mochawesome",
+            "embeddedScreenshots": true,
+            "inlineAssets": true
+        }
     },
     "video": false
 }

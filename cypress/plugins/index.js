@@ -31,15 +31,15 @@ module.exports = (on, config) => {
   require('cypress-mochawesome-reporter/plugin')(on);
 
   // for cypress-terminal-report
-  // const options = {
-  //   printLogsToFile: 'always',
-  //   printLogsToConsole: 'onFail',
-  //   outputRoot: config.projectRoot + '/cypress/logs/',
-  //   specRoot: path.relative(config.fileServerFolder, config.integrationFolder),
-  //   outputTarget: {
-  //     'cypress-logs|txt': 'txt',
-  //     'cypress-logs|json': 'json'
-  //   }
-  // };
-  // require('cypress-terminal-report/src/installLogsPrinter')(on, options);
+  const options = {
+    printLogsToFile: 'always',
+    printLogsToConsole: 'onFail',
+    outputRoot: config.projectRoot + '/cypress/logs/',
+    specRoot: path.relative(config.fileServerFolder, config.integrationFolder),
+    outputTarget: {
+      'cypress-logs|txt': 'txt',
+      'cypress-logs|json': 'json'
+    }
+  };
+  require('cypress-terminal-report/src/installLogsPrinter')(on, options);
 }

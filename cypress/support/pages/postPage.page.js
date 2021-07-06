@@ -4,7 +4,7 @@ class PostPage {
     }
 
     verifyPostlResultHeader(keyword) {
-        cy.xpath(this.getPostPageElements().POST_PAGE_HEADER).invoke('text')
+        cy.xpath(this.getPostPageElements().POST_PAGE_HEADER, { timeout: 10000 }).invoke('text')
             .then((postheader) => {
                 expect(postheader.trim().toLowerCase()).to.include(keyword.toLowerCase());
             });
@@ -12,7 +12,7 @@ class PostPage {
     }
 
     verifyAuthor(authorname) {
-        cy.xpath(this.getPostPageElements().POST_AUTHOR).invoke('text')
+        cy.xpath(this.getPostPageElements().POST_AUTHOR, { timeout: 10000 }).invoke('text')
             .then((postauthor) => {
                 expect(postauthor.trim().toLowerCase()).to.equal(authorname.toLowerCase());
             });
