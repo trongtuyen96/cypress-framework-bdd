@@ -8,14 +8,17 @@
     "reporterOptions": {
         "reporterEnabled": "cypress-mochawesome-reporter, mocha-junit-reporter",
         "mochaJunitReporterReporterOptions": {
-            "mochaFile": "cypress/reports/junit/[hash].xml"
+            "mochaFile": "cypress/reports/junit/[hash].xml",
+            "jenkinsMode": true
         },
         "cypressMochawesomeReporterReporterOptions": {
             "charts": true,
             "reportPageTitle": "My Test Suite",
+            "reportFilename":"Report",
             "reportDir": "cypress/reports/mochawesome",
             "embeddedScreenshots": true,
-            "inlineAssets": true
+            "inlineAssets": true,
+            "timestamp": "mmddyyyy_HHMMss"
         }
     },
     "video": false
