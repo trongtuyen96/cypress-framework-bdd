@@ -2,7 +2,22 @@
     "baseUrl": "https://www.automatedtestingwithtuyen.com",
     "env": {
         "username": "a",
-        "password": "b"
+        "password": "b",
+        "cypress-plugin-snapshots": {
+            "imageConfig": {
+                "createDiffImage": true, 
+                "threshold": 0.01, 
+                "thresholdType": "percent"
+            },
+            "autoCleanUp": false,           
+            "autopassNewSnapshots": true,    
+            "diffLines": 3,                  
+            "excludeFields": [],             
+            "ignoreExtraArrayItems": false,  
+            "ignoreExtraFields": false,      
+            "normalizeJson": true,           
+            "prettier": true
+        }
     },
     "reporter": "cypress-multi-reporters",
     "reporterOptions": {
@@ -14,12 +29,16 @@
         "cypressMochawesomeReporterReporterOptions": {
             "charts": true,
             "reportPageTitle": "My Test Suite",
-            "reportFilename":"Report",
+            "reportFilename": "Report",
             "reportDir": "cypress/reports/mochawesome",
             "embeddedScreenshots": true,
             "inlineAssets": true,
             "timestamp": "mmddyyyy_HHMMss"
         }
     },
-    "video": false
+    "video": false,
+    "ignoreTestFiles": [
+        "**/__snapshots__/*",
+        "**/__image_snapshots__/*"
+    ]
 }

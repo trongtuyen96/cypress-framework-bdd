@@ -3,6 +3,7 @@ Feature: Automatedtestingwithtuyen.com login feature
     Scenario: Verify if user is able to login
 
         Given user launches the ATWT website
+        Then it should display banner image correctly
         When user click on Log In to login
         And user click Log In link to swith to log in
         And user click on Log In with Email

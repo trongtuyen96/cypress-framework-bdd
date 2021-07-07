@@ -3,6 +3,10 @@ import Homepage from '../pages/homePage.page'
 
 const homepage = new Homepage();
 
+Then('it should display banner image correctly',()=>{
+    homepage.verifyBannerImage();
+})
+
 When('user click on Search button', () => {
     homepage.clickSearchBtn();
 });

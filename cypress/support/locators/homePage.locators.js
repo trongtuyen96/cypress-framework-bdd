@@ -24,6 +24,8 @@ const POST_TITLE_SEARCH = '//a[contains(@class,"blog-link-hover")]';
 
 const POST_TITLE_LINK = '//h2[contains(@class,"post-title blog-hover")]'
 
+const BANNER_BG = '//div[@data-testid="container-bg"]';
+
 module.exports = {
     LOGIN_BTN,
     HOME_BTN,
@@ -37,5 +39,6 @@ module.exports = {
     SEARCH_BTN,
     SEARCH_BOX,
     POST_TITLE_SEARCH,
-    POST_TITLE_LINK
+    POST_TITLE_LINK,
+    BANNER_BG
 }

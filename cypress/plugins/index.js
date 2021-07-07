@@ -16,6 +16,9 @@ const cucumber = require('cypress-cucumber-preprocessor').default
 
 const path = require('path');
 
+const {initPlugin} = require('cypress-plugin-snapshots/plugin');
+
+
 /**
  * @type {Cypress.PluginConfig}
  */
@@ -42,4 +45,7 @@ module.exports = (on, config) => {
     }
   };
   require('cypress-terminal-report/src/installLogsPrinter')(on, options);
+
+  // for cypress-plugin-snapshots
+  initPlugin(on, config);
 }

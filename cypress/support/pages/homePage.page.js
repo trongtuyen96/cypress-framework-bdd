@@ -87,6 +87,11 @@ class HomePage {
             })
         return this;
     }
+
+    verifyBannerImage() {
+        cy.xpath(this.getHomePageElements().BANNER_BG).toMatchSnapshot();
+        return this;
+    }
 }
 
 module.exports = HomePage;
