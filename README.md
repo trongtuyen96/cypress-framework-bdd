@@ -3,6 +3,7 @@ An automated testing framework based on CypressIO with Behaviour-Driven Developm
 
 ## Changelogs
 - 05/07/2021: Add cypress-mochawesome-reporter for generating HTMl report
+- 06/07/2021: Add cypress-multi-reporters for generating both Junit and Mocha reports
 
 ## Installation
 
