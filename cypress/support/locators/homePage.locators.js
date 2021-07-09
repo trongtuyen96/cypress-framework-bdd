@@ -26,6 +26,8 @@ const POST_TITLE_LINK = '//h2[contains(@class,"post-title blog-hover")]'
 
 const BANNER_BG = '//div[@data-testid="container-bg"]';
 
+const USER_NAME = '//button[contains(@aria-label,"account menu")]/div[position()=2]'
+
 module.exports = {
     LOGIN_BTN,
     HOME_BTN,
@@ -40,5 +42,6 @@ module.exports = {
     SEARCH_BOX,
     POST_TITLE_SEARCH,
     POST_TITLE_LINK,
-    BANNER_BG
+    BANNER_BG,
+    USER_NAME
 }

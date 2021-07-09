@@ -34,9 +34,9 @@ And('user enters the Password', () => {
 });
 
 And('user click on Log In button', () => {
-    loginpage.clickLoginBtn()
+    loginpage.clickLoginBtn();
 });
 
 Then('user login successfully', () => {
-    // loginpage.clickLoginBtn()
+    homepage.verifyLoginUser();
 });

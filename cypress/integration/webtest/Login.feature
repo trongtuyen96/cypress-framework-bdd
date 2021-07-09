@@ -12,3 +12,4 @@ Feature: Automatedtestingwithtuyen.com login feature
         And user enters the Password
         And user click on Log In button
         Then user login successfully
+        And it should run performance audits using Lighthouse

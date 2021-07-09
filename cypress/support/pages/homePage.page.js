@@ -92,6 +92,16 @@ class HomePage {
         cy.xpath(this.getHomePageElements().BANNER_BG).toMatchSnapshot();
         return this;
     }
+
+    verifyLoginUser() {
+        cy.xpath(this.getHomePageElements().USER_NAME, { timeout: 10000 }).invoke('text')
+            .then((username) => {
+                cy.fixture('testdata.json').then((td) => {
+                    expect(username.trim()).to.equal(td.firstname + td.lastname);
+                })
+            })
+        return this;
+    }
 }
 
 module.exports = HomePage;
