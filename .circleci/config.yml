@@ -86,24 +86,26 @@ jobs:
       - attach_workspace:
           at: ~/
       - when:
-          equal: [GET, << parameters.API_method >> ]
+          condition: 
+            equal: [GET, << parameters.API_method >> ]
           steps:
             - run:
                 name: Running API tests with multiple reporters for API-GET.feature
                 command: npm run test-api-get
-      - unless:
-          - when:
-              equal: [POST, << parameters.API_method >> ]
-              steps:
-                - run:
-                    name: Running API tests with multiple reporters for API-POST.feature
-                    command: npm run test-api-post
-          - unless:
-              equal: [PUT, << parameters.API_method >> ]
-              steps:
-                - run:
-                    name: Running API tests with multiple reporters for API-PUT.feature
-                    command: npm run test-api-put
+      - when:
+          condition: 
+            equal: [POST, << parameters.API_method >> ]
+          steps:
+            - run:
+                name: Running API tests with multiple reporters for API-POST.feature
+                command: npm run test-api-post
+      - when:
+          condition: 
+            equal: [PUT, << parameters.API_method >> ]
+          steps:
+            - run:
+                name: Running API tests with multiple reporters for API-PUT.feature
+                command: npm run test-api-put
       - store_test_results:
           path: cypress/reports
       - store_artifacts:
