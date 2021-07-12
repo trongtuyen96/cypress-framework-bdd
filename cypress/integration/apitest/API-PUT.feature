@@ -1,4 +1,4 @@
-Feature: Rest API GET call
+Feature: Rest API PUT call
 
     Scenario: Update User
 
