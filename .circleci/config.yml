@@ -71,7 +71,12 @@ jobs:
 
   testApi:
     <<: *defaults
+    parallelism: 2
     steps:
+      - run:
+          name: Split test
+          command: |
+            circleci tests glob **/integration/apitest/*.feature | circleci tests split --split-by=timings
       - attach_workspace:
           at: ~/
       - run:
@@ -88,12 +93,12 @@ workflows:
   build-and-test:
     jobs:
       - build
-      - testLogin:
-          requires:
-            - build
-      - testPostSearch:
-          requires:
-            - build
+      # - testLogin:
+      #     requires:
+      #       - build
+      # - testPostSearch:
+      #     requires:
+      #       - build
       - testApi:
           requires:
             - build
