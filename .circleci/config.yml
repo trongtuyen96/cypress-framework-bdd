@@ -4,7 +4,7 @@ jobs:
   test:
     docker:
       # the Docker image with Cypress dependencies
-      - image: cypress/base
+      - image: cypress/included
         environment:
           ## this enables colors in the output
           TERM: xterm
