@@ -87,7 +87,7 @@ jobs:
           at: ~/
       - when:
           condition: 
-            equal: [GET, << parameters.API_method >> ]
+            - equal: [GET, << parameters.API_method >> ]
           steps:
             - run:
                 name: Running API tests with multiple reporters for API-GET.feature
@@ -95,14 +95,14 @@ jobs:
       - unless:
           - when:
               condition: 
-                equal: [POST, << parameters.API_method >> ]
+                - equal: [POST, << parameters.API_method >> ]
               steps:
                 - run:
                     name: Running API tests with multiple reporters for API-POST.feature
                     command: npm run test-api-post
           - unless:
               condition: 
-                equal: [PUT, << parameters.API_method >> ]
+                - equal: [PUT, << parameters.API_method >> ]
               steps:
                 - run:
                     name: Running API tests with multiple reporters for API-PUT.feature
