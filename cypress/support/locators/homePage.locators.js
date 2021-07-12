@@ -22,7 +22,7 @@ const SEARCH_BOX = '//input[@placeholder="Search"]';
 
 const POST_TITLE_SEARCH = '//a[contains(@class,"blog-link-hover")]';
 
-const POST_TITLE_LINK = '//h2[contains(@class,"post-title blog-hover")]'
+const POST_TITLE_LINK = '//div[contains(@class,"search-result")]//h2[contains(@class,"post-title blog-hover")]'
 
 const BANNER_BG = '//div[@data-testid="container-bg"]';
 
