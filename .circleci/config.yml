@@ -76,7 +76,7 @@ jobs:
     parameters:
       API_method:
         type: string
-        default: "GET"
+        default: ""
     steps:
       # Comment out for tests splitting - need to test
       # - run:
@@ -87,7 +87,7 @@ jobs:
           at: ~/
       - when:
           condition: 
-            - equal: [GET, <<parameters.API_method>> ]
+            - equal: [GET, << parameters.API_method >> ]
           steps:
             - run:
                 name: Running API tests with multiple reporters for API-<<parameters.API_method>>.feature
@@ -95,14 +95,14 @@ jobs:
       - unless:
           - when:
               condition: 
-                - equal: [POST, <<parameters.API_method>> ]
+                - equal: [POST, << parameters.API_method >> ]
               steps:
                 - run:
                     name: Running API tests with multiple reporters for API-<<parameters.API_method>>.feature
                     command: npm run test-api-post
           - unless:
               condition: 
-                - equal: [PUT, <<parameters.API_method>> ]
+                - equal: [PUT, << parameters.API_method >> ]
               steps:
                 - run:
                     name: Running API tests with multiple reporters for API-<<parameters.API_method>>.feature
