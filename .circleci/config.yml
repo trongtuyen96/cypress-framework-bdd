@@ -71,17 +71,41 @@ jobs:
 
   testApi:
     <<: *defaults
-    parallelism: 2
+    parallelism: 1
+    # parallelism: 2
+    parameters:
+      API_method:
+        type: string
+        default: "GET"
     steps:
-      - run:
-          name: Split test
-          command: |
-            circleci tests glob **/integration/apitest/*.feature | circleci tests split --split-by=timings
+      # Comment out for tests splitting - need to test
+      # - run:
+      #     name: Split test
+      #     command: |
+      #       circleci tests glob **/integration/apitest/*.feature | circleci tests split --split-by=timings
       - attach_workspace:
           at: ~/
-      - run:
-          name: Running API tests with multiple reporters for API-GET.feature, API-PUT.feature
-          command: npm run test-api
+      - when:
+          condition: 
+            - equal: [GET, <<parameters.API_method>> ]
+          steps:
+            - run:
+                name: Running API tests with multiple reporters for API-<<parameters.API_method>>.feature
+                command: npm run test-api-get
+      - unless:
+          condition: 
+            - equal: [POST, <<parameters.API_method>> ]
+          steps:
+            - run:
+                name: Running API tests with multiple reporters for API-<<parameters.API_method>>.feature
+                command: npm run test-api-post
+      - unless:
+          condition: 
+            - equal: [PUT, <<parameters.API_method>> ]
+          steps:
+            - run:
+                name: Running API tests with multiple reporters for API-<<parameters.API_method>>.feature
+                command: npm run test-api-put
       - store_test_results:
           path: cypress/reports
       - store_artifacts:
@@ -93,12 +117,17 @@ workflows:
   build-and-test:
     jobs:
       - build
-      # - testLogin:
-      #     requires:
-      #       - build
-      # - testPostSearch:
-      #     requires:
-      #       - build
+      - testLogin:
+          requires:
+            - build
+      - testPostSearch:
+          requires:
+            - build
       - testApi:
+          API_method: "GET"
+          requires:
+            - build
+      - testApi:
+          API_method: "PUT"
           requires:
             - build
