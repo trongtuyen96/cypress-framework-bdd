@@ -90,7 +90,7 @@ jobs:
             equal: [GET, << parameters.API_method >> ]
           steps:
             - run:
-                name: Running API tests with multiple reporters for API-<<parameters.API_method>>.feature
+                name: Running API tests with multiple reporters for API-GET.feature
                 command: npm run test-api-get
       - unless:
           - when:
@@ -98,14 +98,14 @@ jobs:
                 equal: [POST, << parameters.API_method >> ]
               steps:
                 - run:
-                    name: Running API tests with multiple reporters for API-<<parameters.API_method>>.feature
+                    name: Running API tests with multiple reporters for API-POST.feature
                     command: npm run test-api-post
           - unless:
               condition: 
                 equal: [PUT, << parameters.API_method >> ]
               steps:
                 - run:
-                    name: Running API tests with multiple reporters for API-<<parameters.API_method>>.feature
+                    name: Running API tests with multiple reporters for API-PUT.feature
                     command: npm run test-api-put
       - store_test_results:
           path: cypress/reports
