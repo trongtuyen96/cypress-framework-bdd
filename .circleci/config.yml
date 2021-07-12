@@ -48,7 +48,7 @@ jobs:
           name: Running E2E tests with multiple reporters for Login.feature
           command: npm run test-login
       - store_test_results:
-          path: ~/reports
+          path: cypress/reports
       - store_artifacts:
           path: cypress/videos
       - store_artifacts:
@@ -63,7 +63,7 @@ jobs:
           name: Running E2E tests with multiple reporters for PostSearch.feature
           command: npm run test-postsearch
       - store_test_results:
-          path: ~/reports
+          path: cypress/reports
       - store_artifacts:
           path: cypress/videos
       - store_artifacts:
@@ -107,7 +107,7 @@ jobs:
                 name: Running API tests with multiple reporters for API-PUT.feature
                 command: npm run test-api-put
       - store_test_results:
-          path: ~/reports
+          path: cypress/reports
       - store_artifacts:
           path: cypress/videos
       - store_artifacts:
