@@ -6,6 +6,7 @@ An automated testing framework based on CypressIO with Behaviour-Driven Developm
 - 06/07/2021: Add cypress-multi-reporters for generating both Junit and Mocha reports
 - 07/07/2021: Add cypress-Plugin-snapshot for comparing snapshots
 - 09/07/2021: Add cypress-audit with Lighthouse and Pa11y for performance testing
+- 10/07/2021: Add CircleCI with cypress docker images
 
 ## Installation
 
