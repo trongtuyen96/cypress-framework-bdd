@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "cypress:run": "npx cypress run --browser chrome",
     "cypress:open": "npx cypress open",
-    "test-multiple-login": "npx cypress run --spec 'cypress/integration/webtest/Login.feature,cypress/integration/webtest/Login.feature' --browser chrome"
+    "test-multiple-login": "npx cypress run --spec 'cypress/integration/webtest/Login.feature' --browser chrome"
   },
   "keywords": [
     "WebUI",
