@@ -1,17 +1,23 @@
 version: 2.1
 
+# build job parameters as a template
+defaults: &defaults
+  working_directory: ~/app
+  docker:
+    # the Docker image with Cypress dependencies
+    - image: cypress/included:7.7.0
+      environment:
+        ## this enables colors in the output
+        TERM: xterm
+
 jobs:
-  test:
-    docker:
-      # the Docker image with Cypress dependencies
-      - image: cypress/included:7.7.0
-        environment:
-          ## this enables colors in the output
-          TERM: xterm
-    working_directory: ~/app
-    parallelism: 2
+  build:
+    <<: *defaults
+    parallelism: 1
     steps:
       - checkout
+      - run: pwd
+      - run: ls
       - restore_cache:
           # See the configuration reference documentation for more details on using restore_cache and save_cache steps
           # https://circleci.com/docs/2.0/configuration-reference/?section=reference#save_cache
@@ -27,9 +33,50 @@ jobs:
           paths:
             - ~/.npm
             - ~/.cache
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - .cache
+            - app
+
+  testLogin:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/
       - run:
           name: Running E2E tests with multiple reporters for Login.feature
-          command: npm run test-multiple-login
+          command: npm run test-login
+      - store_test_results:
+          path: cypress/reports
+      - store_artifacts:
+          path: cypress/videos
+      - store_artifacts:
+          path: cypress/screenshots
+
+  testPostSearch:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: Running E2E tests with multiple reporters for PostSearch.feature
+          command: npm run test-postsearch
+      - store_test_results:
+          path: cypress/reports
+      - store_artifacts:
+          path: cypress/videos
+      - store_artifacts:
+          path: cypress/screenshots
+
+  testApi:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: Running API tests with multiple reporters for API-GET.feature, API-PUT.feature
+          command: npm run test-api
       - store_test_results:
           path: cypress/reports
       - store_artifacts:
@@ -38,6 +85,15 @@ jobs:
           path: cypress/screenshots
 
 workflows:
-  orb-free-workflow:
+  build-and-test:
     jobs:
-      - test
+      - build
+      - testLogin:
+          requires:
+            - build
+      - testPostSearch:
+          requires:
+            - build
+      - testApi:
+          requires:
+            - build
