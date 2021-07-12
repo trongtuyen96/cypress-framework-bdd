@@ -124,10 +124,12 @@ workflows:
           requires:
             - build
       - testApi:
+          name: Test API GET
           API_method: "GET"
           requires:
             - build
       - testApi:
+          name: Test API PUT
           API_method: "PUT"
           requires:
             - build
