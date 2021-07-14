@@ -18,6 +18,8 @@ jobs:
       - checkout
       - run: pwd
       - run: ls
+      - setup_remote_docker:
+          docker_layer_caching: true
       - restore_cache:
           # See the configuration reference documentation for more details on using restore_cache and save_cache steps
           # https://circleci.com/docs/2.0/configuration-reference/?section=reference#save_cache
