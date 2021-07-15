@@ -50,6 +50,8 @@ jobs:
         with:
           # we have already installed all dependencies above
           install: false
+
+          command: npm run test
           # start: 
           # wait-on: 'http://localhost:3000'
           # wait-on-timeout: 120
@@ -67,3 +69,15 @@ jobs:
 
           # pass GitHub token to allow accurately detecting a build vs a re-run build
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: upload failure screenshots
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+      - name: upload videos
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: cypress-videos
+          path: cypress/videos
