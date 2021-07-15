@@ -13,13 +13,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      # - name: Save build folder
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: build
-      #     if-no-files-found: error
-      #     path: build
-
       - name: Cypress install
         uses: cypress-io/github-action@v2
         with:
@@ -39,29 +32,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      # - name: Download the build folders
-      #   uses: actions/download-artifact@v2
-      #   with:
-      #     name: build
-      #     path: build
-
-      - name: 'API Tests - GET, POST, PUT'
+      - name: 'Cypress run'
         uses: cypress-io/github-action@v2
         with:
           # we have already installed all dependencies above
           install: false
 
-          command: npm run test
-          # start: 
-          # wait-on: 'http://localhost:3000'
-          # wait-on-timeout: 120
+          # command: npm run test
           browser: chrome
 
           # Only use if Cypress Dashboard configured
           # record: true
           
           parallel: true
-          group: 'UI - Chrome'
+          group: 'API Test'
           spec: cypress/integration/apitest/*
         env:
           # pass the Dashboard record key as an environment variable
