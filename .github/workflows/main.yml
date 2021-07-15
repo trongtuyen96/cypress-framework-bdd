@@ -1,28 +1,13 @@
 # This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
 # For more information see: https://help.github.com/actions/language-and-framework-guides/publishing-nodejs-packages
 
-name: Cypress Tests with Install Job and API Test Job x 5
+name: Cypress Tests
 
 on: [push]
 
 jobs:
-  install:
-    runs-on: ubuntu-latest
-    # container: cypress/browsers:node12.18.3-chrome87-ff82
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Cypress install
-        uses: cypress-io/github-action@v2
-        with:
-          # Disable running of tests within install job
-          runTests: false
-
   api-test-get:
     runs-on: ubuntu-latest
-    # container: cypress/browsers:node12.18.3-chrome87-ff82
-    needs: install
     strategy:
       fail-fast: false
       matrix:
@@ -31,29 +16,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      
-
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          # we have already installed all dependencies above
-          # install: false
-
-          # Only use if Cypress Dashboard configured
-          # record: true
-          # parallel: true
-          # group: 'API Test'
-
-          # command: npm run test
-          browser: chrome
-          spec: |
+          spec:
             cypress/integration/apitest/API-GET.feature
-            cypress/integration/apitest/API-PUT.feature
         env:
-          # pass the Dashboard record key as an environment variable
-          # CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-
           # pass GitHub token to allow accurately detecting a build vs a re-run build
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: upload failure screenshots
@@ -68,3 +36,86 @@ jobs:
         with:
           name: cypress-videos
           path: cypress/videos
+
+  api-test-put:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          spec:
+            cypress/integration/apitest/API-PUT.feature
+        env:
+          # pass GitHub token to allow accurately detecting a build vs a re-run build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: upload failure screenshots
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+      - name: upload videos
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: cypress-videos
+          path: cypress/videos
+
+  wed-test-login:
+    runs-on: ubuntu-latest
+    container: cypress/browsers:node12.18.3-chrome87-ff82
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          browser: chrome
+          spec:
+            cypress/integration/webtest/Login.feature
+        env:
+          # pass GitHub token to allow accurately detecting a build vs a re-run build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: upload failure screenshots
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+      - name: upload videos
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: cypress-videos
+          path: cypress/videos
+  
+  wed-test-postsearch:
+    runs-on: ubuntu-latest
+    container: cypress/browsers:node12.18.3-chrome87-ff82
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          browser: chrome
+          spec:
+            cypress/integration/webtest/PostSearch.feature
+        env:
+          # pass GitHub token to allow accurately detecting a build vs a re-run build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: upload failure screenshots
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+      - name: upload videos
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: cypress-videos
+          path: cypress/videos
+  
