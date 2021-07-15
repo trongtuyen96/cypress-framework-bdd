@@ -44,8 +44,8 @@ jobs:
           # Only use if Cypress Dashboard configured
           # record: true
           # parallel: true
+          # group: 'API Test'
           
-          group: 'API Test'
           spec: cypress/integration/apitest/*
         env:
           # pass the Dashboard record key as an environment variable
