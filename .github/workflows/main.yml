@@ -43,8 +43,8 @@ jobs:
 
           # Only use if Cypress Dashboard configured
           # record: true
+          # parallel: true
           
-          parallel: true
           group: 'API Test'
           spec: cypress/integration/apitest/*
         env:
