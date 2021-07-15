@@ -38,7 +38,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           # we have already installed all dependencies above
-          install: false
+          # install: false
 
           # Only use if Cypress Dashboard configured
           # record: true
