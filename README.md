@@ -9,6 +9,7 @@ An automated testing framework based on CypressIO with Behaviour-Driven Developm
 - 11/07/2021: Add CircleCI with cypress docker images
 - 12/07/2021: Add CircleCI with conditional workflows
 - 13/07/2021: Add store_artifacts to store test result reports
+- 15/07/2021: Add Github Workflows
 
 ## Installation
 
