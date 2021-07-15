@@ -21,7 +21,7 @@ jobs:
 
   api-test-get:
     runs-on: ubuntu-latest
-    container: cypress/browsers:node12.18.3-chrome87-ff82
+    # container: cypress/browsers:node12.18.3-chrome87-ff82
     needs: ['install']
     strategy:
       fail-fast: false
@@ -32,7 +32,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: 'Cypress run'
+      
+
+      - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
           # we have already installed all dependencies above
