@@ -14,9 +14,8 @@ cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
     - .cache/*
-    - cache/Cypress
+    - cache/cypress
     - node_modules
-    - build
 
 # Install NPM dependencies and Cypress
 install:
