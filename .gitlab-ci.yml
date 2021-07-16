@@ -1,0 +1,67 @@
+# Install Cypress, then run all tests (in parallel)
+stages:
+  - build
+  - test
+
+# Set environment variables for folders in "cache" job settings for npm modules and Cypress binary
+variables:
+  npm_config_cache: "$CI_PROJECT_DIR/.npm"
+  CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
+
+# Cache using branch name
+# https://gitlab.com/help/ci/caching/index.md
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - .cache/*
+    - cache/Cypress
+    - node_modules
+    - build
+
+# Install NPM dependencies and Cypress
+install:
+  image: cypress/included:7.7.0
+  stage: build
+
+  script:
+    - pwd
+    - ls
+    - npm ci
+    # check Cypress binary path and cached versions
+    - npx cypress cache path
+    - npx cypress cache list
+
+testLogin:
+  image: cypress/included:7.7.0
+  stage: test
+  parallel: 1
+  script:
+    - npx cypress run --browser chrome --spec "cypress/integration/webtest/Login.feature"
+
+testPostSearch:
+  image: cypress/included:7.7.0
+  stage: test
+  parallel: 1
+  script:
+    - npx cypress run --browser chrome --spec "cypress/integration/webtest/PostSearch.feature"
+
+testApiGet:
+  image: cypress/included:7.7.0
+  stage: test
+  parallel: 2
+  script:
+    - npx cypress run --spec "cypress/integration/apitest/API-GET.feature"
+
+testApiPost:
+  image: cypress/included:7.7.0
+  stage: test
+  parallel: 1
+  script:
+    - npx cypress run --spec "cypress/integration/apitest/API-POST.feature"
+
+testApiPut:
+  image: cypress/included:7.7.0
+  stage: test
+  parallel: 1
+  script:
+    - npx cypress run --spec "cypress/integration/apitest/API-PUT.feature"

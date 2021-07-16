@@ -48,6 +48,27 @@ When(/^I make (.*) call to (.*)$/,(reqmethod, apiuri)=>{
     });
 });
 
+Then(/^I delete above created object from (.*)$/,(apiuri)=>{
+    url = apiuri;
+    let jsonKey = '_id'
+
+    requestOptions.log = true;
+    requestOptions.method = 'DELETE';
+    requestOptions.url = url + '/'+ responseBody[jsonKey];
+    requestOptions.headers = headers;
+    requestOptions.body = requestBody;
+
+    cy.wait(3000)
+        .request(requestOptions)
+        .wait(2000)
+        .then((resp)=>{
+        responseObject = resp;
+        console.log(responseObject);
+        responseBody = JSON.stringify(responseObject.body);
+        responseBody = JSON.parse(responseBody);
+    });
+});
+
 Then(/^Response code should be (.*)$/, (responseCode)=>{
     expect(responseCode).to.equal(responseObject.status.toString());
 });

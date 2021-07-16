@@ -7,3 +7,5 @@ Feature: Rest API POST call
         Then I make POST call to https://atwt-api.herokuapp.com/v1/car
         Then Response code should be 200
         Then Response body should contain a key model with a value BMW M1000RR
+        Then I delete above created object from https://atwt-api.herokuapp.com/v1/car
+        Then Response code should be 200
