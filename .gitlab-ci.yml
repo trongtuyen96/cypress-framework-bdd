@@ -34,14 +34,12 @@ install:
 testLogin:
   image: cypress/included:7.7.0
   stage: test
-  parallel: 1
   script:
     - npx cypress run --browser chrome --spec "cypress/integration/webtest/Login.feature"
 
 testPostSearch:
   image: cypress/included:7.7.0
   stage: test
-  parallel: 1
   script:
     - npx cypress run --browser chrome --spec "cypress/integration/webtest/PostSearch.feature"
 
@@ -55,13 +53,11 @@ testApiGet:
 testApiPost:
   image: cypress/included:7.7.0
   stage: test
-  parallel: 1
   script:
     - npx cypress run --spec "cypress/integration/apitest/API-POST.feature"
 
 testApiPut:
   image: cypress/included:7.7.0
   stage: test
-  parallel: 1
   script:
     - npx cypress run --spec "cypress/integration/apitest/API-PUT.feature"
