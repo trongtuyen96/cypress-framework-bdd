@@ -19,7 +19,7 @@ cache:
 
 # Install NPM dependencies and Cypress
 install:
-  image: cypress/included:7.7.0
+  image: cypress/browsers:node14.15.0-chrome86-ff82
   stage: build
 
   script:
@@ -31,32 +31,32 @@ install:
     - npx cypress cache list
 
 testLogin:
-  image: cypress/included:7.7.0
+  image: cypress/browsers:node14.15.0-chrome86-ff82
   stage: test
   script:
     - npx cypress run --browser chrome --spec "cypress/integration/webtest/Login.feature"
 
 testPostSearch:
-  image: cypress/included:7.7.0
+  image: cypress/browsers:node14.15.0-chrome86-ff82
   stage: test
   script:
     - npx cypress run --browser chrome --spec "cypress/integration/webtest/PostSearch.feature"
 
 testApiGet:
-  image: cypress/included:7.7.0
+  image: cypress/browsers:node14.15.0-chrome86-ff82
   stage: test
   parallel: 2
   script:
     - npx cypress run --spec "cypress/integration/apitest/API-GET.feature"
 
 testApiPost:
-  image: cypress/included:7.7.0
+  image: cypress/browsers:node14.15.0-chrome86-ff82
   stage: test
   script:
     - npx cypress run --spec "cypress/integration/apitest/API-POST.feature"
 
 testApiPut:
-  image: cypress/included:7.7.0
+  image: cypress/browsers:node14.15.0-chrome86-ff82
   stage: test
   script:
     - npx cypress run --spec "cypress/integration/apitest/API-PUT.feature"
