@@ -10,6 +10,7 @@ An automated testing framework based on CypressIO with Behaviour-Driven Developm
 - 12/07/2021: Add CircleCI with conditional workflows
 - 13/07/2021: Add store_artifacts to store test result reports
 - 15/07/2021: Add Github Workflows
+- 17/07/2021: Add Gitlab CI
 
 ## Installation
 
