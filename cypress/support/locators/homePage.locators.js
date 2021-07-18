@@ -28,6 +28,8 @@ const BANNER_BG = '//div[@data-testid="container-bg"]';
 
 const USER_NAME = '//button[contains(@aria-label,"account menu")]/div[position()=2]'
 
+const POST_IMAGE_LOADED = '(//div[contains(@style,"file.webp")])[1]'
+
 module.exports = {
     LOGIN_BTN,
     HOME_BTN,
@@ -43,5 +45,6 @@ module.exports = {
     POST_TITLE_SEARCH,
     POST_TITLE_LINK,
     BANNER_BG,
-    USER_NAME
+    USER_NAME,
+    POST_IMAGE_LOADED
 }

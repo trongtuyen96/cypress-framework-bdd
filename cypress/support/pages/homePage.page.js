@@ -9,7 +9,7 @@ class HomePage {
         // cy.get('.some-element-in-your-app-that-only-exists-once-page-has-loaded', { timeout: 30000 })
 
         // Special case: Wait for page fully loaded and rendered
-        cy.wait(10000);
+        cy.xpath(this.getHomePageElements().POST_IMAGE_LOADED, {timeout: 30000});
         return this;
     }
 
@@ -70,7 +70,7 @@ class HomePage {
 
     enterKeywordSearch(keyword) {
         cy.xpath(this.getHomePageElements().SEARCH_BOX)
-            .type(keyword)
+            .type(keyword, { timeout: 10000 })
             .type('{enter}')
         return this;
     }
