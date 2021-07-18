@@ -32,7 +32,7 @@ install:
 
 testLogin:
   rules:
-    - if: $CI_PIPELINE_SOURCE = "push"
+    - if: '$CI_PIPELINE_SOURCE = "push"'
   image: cypress/browsers:node14.15.0-chrome86-ff82
   stage: test
   script:
@@ -40,7 +40,7 @@ testLogin:
 
 testPostSearch:
   rules:
-    - if: $CI_PIPELINE_SOURCE = "push"
+    - if: '$CI_PIPELINE_SOURCE = "push"'
   image: cypress/browsers:node14.15.0-chrome86-ff82
   stage: test
   script:
@@ -48,7 +48,7 @@ testPostSearch:
 
 testApiGet:
   rules:
-    - if: $CI_PIPELINE_SOURCE = "push"
+    - if: '$CI_PIPELINE_SOURCE = "push"'
   image: cypress/browsers:node14.15.0-chrome86-ff82
   stage: test
   parallel: 2
@@ -57,7 +57,7 @@ testApiGet:
 
 testApiPost:
   rules:
-    - if: $CI_PIPELINE_SOURCE = "push"
+    - if: '$CI_PIPELINE_SOURCE = "push"'
   image: cypress/browsers:node14.15.0-chrome86-ff82
   stage: test
   script:
@@ -65,15 +65,15 @@ testApiPost:
 
 testApiPut:
   rules:
-    - if: $CI_PIPELINE_SOURCE = "push"
+    - if: '$CI_PIPELINE_SOURCE = "push"'
   image: cypress/browsers:node14.15.0-chrome86-ff82
   stage: test
   script:
     - npx cypress run --spec "cypress/integration/apitest/API-PUT.feature"
 
-testOnSchedule:
+testOnSchedule:on-schedule:
   rules:
-    - if: $CI_PIPELINE_SOURCE == "schedule"
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
   stage: test
   script:
     - npx cypress run --browser chrome --spec "cypress/integration/webtest/Login.feature,cypress/integration/apitest/API-GET.feature,cypress/integration/apitest/API-POST.feature"
