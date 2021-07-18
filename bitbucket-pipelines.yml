@@ -6,7 +6,7 @@ login-test: &login-test
     - cypress
     - node
   script:
-    - npx cypress run --browser chrome --spec "cypress/integration/webtest/Login.feature" --ci-build-id $BITBUCKET_BUILD_NUMBER
+    - npx cypress run --browser chrome --spec "cypress/integration/webtest/Login.feature"
 
 postsearch-test: &postsearch-test
   name: "Post Search Test"
@@ -14,7 +14,7 @@ postsearch-test: &postsearch-test
     - cypress
     - node
   script:
-    - npx cypress run --browser chrome --spec "cypress/integration/webtest/PostSearch.feature" --ci-build-id $BITBUCKET_BUILD_NUMBER
+    - npx cypress run --browser chrome --spec "cypress/integration/webtest/PostSearch.feature"
 
 api-test-get: &api-test-get
   name: "API Test GET"
@@ -22,7 +22,7 @@ api-test-get: &api-test-get
     - cypress
     - node
   script:
-    - npx cypress run --spec "cypress/integration/apitest/API-GET.feature" --ci-build-id $BITBUCKET_BUILD_NUMBER
+    - npx cypress run --spec "cypress/integration/apitest/API-GET.feature"
 
 api-test-post: &api-test-post
   name: "API Test POST"
@@ -30,7 +30,7 @@ api-test-post: &api-test-post
     - cypress
     - node
   script:
-    - npx cypress run --spec "cypress/integration/apitest/API-POST.feature" --ci-build-id $BITBUCKET_BUILD_NUMBER
+    - npx cypress run --spec "cypress/integration/apitest/API-POST.feature"
 
 api-test-put: &api-test-put
   name: "API Test PUT"
@@ -38,7 +38,7 @@ api-test-put: &api-test-put
     - cypress
     - node
   script:
-    - npx cypress run --spec "cypress/integration/apitest/API-PUT.feature" --ci-build-id $BITBUCKET_BUILD_NUMBER
+    - npx cypress run --spec "cypress/integration/apitest/API-PUT.feature"
 
 pipelines:
   default:
