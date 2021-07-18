@@ -139,3 +139,29 @@ workflows:
           API_method: "PUT"
           requires:
             - build
+            
+  scheduled-workflow:
+    triggers:
+      - schedule:
+          cron: "0 16 20 * *"
+          filters:
+            branches:
+              only: main
+    jobs:
+      - build
+      - testLogin:
+          requires:
+            - build
+      - testPostSearch:
+          requires:
+            - build
+      - testApi:
+          name: Test API GET
+          API_method: "GET"
+          requires:
+            - build
+      - testApi:
+          name: Test API PUT
+          API_method: "PUT"
+          requires:
+            - build
