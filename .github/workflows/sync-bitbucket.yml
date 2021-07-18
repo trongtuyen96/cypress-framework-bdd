@@ -25,7 +25,8 @@ jobs:
         with:
           key: ${{ secrets.BITBUCKET_SSH_KEY }}
           name: id_rsa 
-          known_hosts: ${{ secrets.BITBUCKET_KNOWN_HOSTS }}
+          # known_hosts: ${{ secrets.BITBUCKET_KNOWN_HOSTS }}
+          known_hosts: unneccesary
           config: 
             Host bitbucket.org
               User git
@@ -33,7 +34,7 @@ jobs:
               IdentitiesOnly yes 
 
       - uses: franzdiebold/github-env-vars-action@v2
-      - name: sync with bitbucket
+      - name: Sync with bitbucket
         run: |
           cd $GITHUB_WORKSPACE
           #  update the entire repo including tags/branches; prune out deleted items
