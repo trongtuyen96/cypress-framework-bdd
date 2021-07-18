@@ -1,0 +1,71 @@
+image: cypress/browsers:node14.15.0-chrome86-ff82
+
+login-test: &login-test
+  name: "Login Test"
+  caches:
+    - cypress
+    - node
+  script:
+    - npx cypress run --browser chrome --spec "cypress/integration/webtest/Login.feature" --ci-build-id $BITBUCKET_BUILD_NUMBER
+
+postsearch-test: &postsearch-test
+  name: "Post Search Test"
+  caches:
+    - cypress
+    - node
+  script:
+    - npx cypress run --browser chrome --spec "cypress/integration/webtest/PostSearch.feature" --ci-build-id $BITBUCKET_BUILD_NUMBER
+
+api-test-get: &api-test-get
+  name: "API Test GET"
+  caches:
+    - cypress
+    - node
+  script:
+    - npx cypress run --spec "cypress/integration/apitest/API-GET.feature" --ci-build-id $BITBUCKET_BUILD_NUMBER
+
+api-test-post: &api-test-post
+  name: "API Test POST"
+  caches:
+    - cypress
+    - node
+  script:
+    - npx cypress run --spec "cypress/integration/apitest/API-POST.feature" --ci-build-id $BITBUCKET_BUILD_NUMBER
+
+api-test-put: &api-test-put
+  name: "API Test PUT"
+  caches:
+    - cypress
+    - node
+  script:
+    - npx cypress run --spec "cypress/integration/apitest/API-PUT.feature" --ci-build-id $BITBUCKET_BUILD_NUMBER
+
+pipelines:
+  default:
+    - step:
+        name: Install dependencies
+        caches:
+          - cypress
+          - node
+        script:
+          - npm install
+        # artifacts:
+        #   - build/**
+    - parallel:
+        - step:
+            <<: *login-test
+        - step:
+            <<: *postsearch-test
+        - step:
+            <<: *api-test-get
+        - step:
+            <<: *api-test-get
+        - step:
+            <<: *api-test-post
+        - step:
+            <<: *api-test-put
+       
+definitions:
+  caches:
+    yarn: $HOME/.cache
+    cypress: $HOME/.cache/cypress
