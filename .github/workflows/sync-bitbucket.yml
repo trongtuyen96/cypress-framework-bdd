@@ -1,7 +1,7 @@
 # This action mirrors the cypress-framework-bdd github repo into a Bitbucket Repo
 # github.com/trongtuyen96/cypress-framework-bdd -> bitbucket.org/trongtuyen96/cypress-framework-bdd
 
-name: Sync Bitbucket over SSH
+name: Sync Bitbucket from Github over SSH
 
 on:
   push:
@@ -14,7 +14,7 @@ env:
 
 jobs:
   syncbb:
-    name: Synch from Github to Bitbucket using SSH
+    name: Sync from Github to Bitbucket using SSH
     runs-on: ubuntu-latest
     steps:
       - name: Clone the Github repo
