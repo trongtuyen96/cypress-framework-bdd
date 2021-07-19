@@ -1,5 +1,25 @@
 {
   "extends": [
     "config:base"
+  ],
+  "commitMessage": "{{semanticPrefix}}Update {{depName}} to {{newVersion}} 🌟",
+  "prTitle": "{{semanticPrefix}}{{#if isPin}}Pin{{else}}Update{{/if}} dependency {{depName}} to version {{#if isRange}}{{newVersion}}{{else}}{{#if isMajor}}{{newVersionMajor}}.x{{else}}{{newVersion}}{{/if}}{{/if}} 🌟",
+  "automerge": true,
+  "major": {
+    "automerge": false
+  },
+  "minor": {
+    "automerge": true
+  },
+  "labels": [
+    "type: dependencies",
+    "renovate"
+  ],
+  "masterIssue": true,
+  "prConcurrentLimit": 3,
+  "prHourlyLimit": 2,
+  "timezone": "America/New_York",
+  "schedule": [
+    "every weekend"
   ]
 }
