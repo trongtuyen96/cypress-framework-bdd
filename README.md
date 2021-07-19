@@ -11,6 +11,7 @@ An automated testing framework based on CypressIO with Behaviour-Driven Developm
 - 13/07/2021: Add store_artifacts to store test result reports
 - 15/07/2021: Add Github Workflows
 - 17/07/2021: Add Gitlab CI
+- 19/07/2021: Add Github Workflows to pull code from Github and sync to Bitbucket
 
 ## Installation
 
