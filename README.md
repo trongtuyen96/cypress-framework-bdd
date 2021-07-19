@@ -1,7 +1,7 @@
 # cypress-framework-bdd
 An automated testing framework based on CypressIO with Behaviour-Driven Development
 
-[![CircleCI](https://circleci.com/github/trongtuyen96/cypress-framework-bdd.svg?style=svg)]
+[![CircleCI](https://circleci.com/gh/trongtuyen96/cypress-framework-bdd.svg?style=svg)](https://circleci.com/gh/circleci/circleci-docs)
 
 ## Changelogs
 - 05/07/2021: Add cypress-mochawesome-reporter for generating HTMl report
