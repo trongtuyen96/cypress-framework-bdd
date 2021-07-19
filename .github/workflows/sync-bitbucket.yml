@@ -17,7 +17,7 @@ jobs:
     name: Synch from Github to Bitbucket using SSH
     runs-on: ubuntu-latest
     steps:
-      - name: Clone the github repo
+      - name: Clone the Github repo
         uses: actions/checkout@v2
 
       - name: Install SSH key
@@ -33,7 +33,7 @@ jobs:
               IdentitiesOnly yes 
 
       - uses: franzdiebold/github-env-vars-action@v2
-      - name: Sync with bitbucket
+      - name: Sync with Bitbucket
         run: |
           cd $GITHUB_WORKSPACE
           #  update the entire repo including tags/branches; prune out deleted items
