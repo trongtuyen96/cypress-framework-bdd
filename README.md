@@ -1,6 +1,8 @@
 # cypress-framework-bdd
 An automated testing framework based on CypressIO with Behaviour-Driven Development
 
+[![CircleCI](https://circleci.com/gh/trongtuyen96/cypress-framework-bdd.svg?style=svg&circle-token=7400bd5a15daed35237400a49b510ad756a005a0)](https://app.circleci.com/pipelines/github/trongtuyen96/cypress-framework-bdd)
+
 ## Changelogs
 - 05/07/2021: Add cypress-mochawesome-reporter for generating HTMl report
 - 06/07/2021: Add cypress-multi-reporters for generating both Junit and Mocha reports
@@ -11,6 +13,7 @@ An automated testing framework based on CypressIO with Behaviour-Driven Developm
 - 13/07/2021: Add store_artifacts to store test result reports
 - 15/07/2021: Add Github Workflows
 - 17/07/2021: Add Gitlab CI
+- 19/07/2021: Add Github Workflows to pull code from Github and sync to Bitbucket
 
 ## Installation
 
