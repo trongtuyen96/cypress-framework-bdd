@@ -5,8 +5,8 @@ name: Sync Bitbucket from Github over SSH
 
 on:
   push:
-    branches:
-      - main
+    branches-ignore:  
+      - '**'  # this effectively disables this workflow - never runs
 
 # set the variable to the destination bitbucket workspace name
 env:
