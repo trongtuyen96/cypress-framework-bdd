@@ -18,6 +18,8 @@ And('it should run performance audits using custom thresholds', () => {
         'largest-contentful-paint': 3000,
         'cumulative-layout-shift': 0.1,
         'total-blocking-time': 500,
+        interactive: 2000,
+        pwa: 50,
     };
 
     const desktopConfig = {
