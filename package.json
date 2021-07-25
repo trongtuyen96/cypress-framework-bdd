@@ -12,8 +12,8 @@
     "test-api-get": "npx cypress run --spec 'cypress/integration/apitest/API-GET.feature'",
     "test-api-post": "npx cypress run --spec 'cypress/integration/apitest/API-POST.feature'",
     "test-api-put": "npx cypress run --spec 'cypress/integration/apitest/API-PUT.feature'",
-    "test-api-circleci": "npx cypress run --spec --parallel --record --group API-Test 'cypress/integration/apitest/*.feature'",
-    "test-web-circleci": "npx cypress run --spec --parallel --record --group WebUI-Test 'cypress/integration/webtest/*.feature'"
+    "test-api-circleci": "npx cypress run --parallel --record --group API-Test --spec 'cypress/integration/apitest/*.feature'",
+    "test-web-circleci": "npx cypress run --parallel --record --group WebUI-Test --spec 'cypress/integration/webtest/*.feature'"
   },
   "keywords": [
     "WebUI",
