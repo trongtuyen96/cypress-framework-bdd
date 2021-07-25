@@ -41,10 +41,7 @@ jobs:
 
   testApi:
     <<: *defaults
-    record: true
-    parallel: true 
     parallelism: 3 
-    group: API tests
     steps:
       - attach_workspace:
           at: ~/
@@ -54,7 +51,7 @@ jobs:
             circleci tests glob **/integration/apitest/*.feature | circleci tests split --split-by=timings
       - run:
           name: Running E2E tests with multiple reporters for Api
-          command: npm run test-api
+          command: npm run test-api-circleci
       - store_test_results:
           path: cypress/reports
       - store_artifacts:
@@ -66,16 +63,13 @@ jobs:
 
   testWeb:
     <<: *defaults
-    record: true
-    parallel: true 
     parallelism: 2
-    group: WebUI tests
     steps:
       - attach_workspace:
           at: ~/
       - run:
           name: Running E2E tests with multiple reporters for Web
-          command: npm run test-web
+          command: npm run test-web-circleci
       - store_test_results:
           path: cypress/reports
       - store_artifacts:
