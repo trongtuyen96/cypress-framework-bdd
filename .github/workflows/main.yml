@@ -13,9 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-    #   matrix:
-    #     # run copies of the current job in parallel
-    #     containers: [1, 2]
+      matrix:
+        # run copies of the current job in parallel
+        containers: [1, 2]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
