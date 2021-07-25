@@ -23,9 +23,13 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
+          parallel: true
           spec:
             cypress/integration/apitest/API-GET.feature
         env:
+          # pass the Dashboard record key as an environment variable
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
           # pass GitHub token to allow accurately detecting a build vs a re-run build
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: upload failure screenshots
@@ -53,6 +57,9 @@ jobs:
           spec:
             cypress/integration/apitest/API-PUT.feature
         env:
+          # pass the Dashboard record key as an environment variable
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
           # pass GitHub token to allow accurately detecting a build vs a re-run build
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: upload failure screenshots
@@ -82,6 +89,9 @@ jobs:
           spec:
             cypress/integration/webtest/Login.feature
         env:
+          # pass the Dashboard record key as an environment variable
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
           # pass GitHub token to allow accurately detecting a build vs a re-run build
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: upload failure screenshots
@@ -111,6 +121,9 @@ jobs:
           spec:
             cypress/integration/webtest/PostSearch.feature
         env:
+          # pass the Dashboard record key as an environment variable
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
           # pass GitHub token to allow accurately detecting a build vs a re-run build
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: upload failure screenshots
