@@ -9,7 +9,7 @@
 # commit a change to the github repo
 # it should be reflected into the bb repo. 
 
-name: Synch BitBucket via HTTPS
+name: Sync BitBucket via HTTPS
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch

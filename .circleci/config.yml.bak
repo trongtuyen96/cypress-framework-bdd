@@ -1,17 +1,23 @@
 version: 2.1
 
+# build job parameters as a template
+defaults: &defaults
+  working_directory: ~/app
+  docker:
+    # the Docker image with Cypress dependencies
+    - image: cypress/included:7.7.0
+      environment:
+        ## this enables colors in the output
+        TERM: xterm
+
 jobs:
-  test:
-    docker:
-      # the Docker image with Cypress dependencies
-      - image: cypress/included:7.7.0
-        environment:
-          ## this enables colors in the output
-          TERM: xterm
-    working_directory: ~/app
+  build:
+    <<: *defaults
     parallelism: 1
     steps:
       - checkout
+      - run: pwd
+      - run: ls
       - restore_cache:
           # See the configuration reference documentation for more details on using restore_cache and save_cache steps
           # https://circleci.com/docs/2.0/configuration-reference/?section=reference#save_cache
@@ -27,10 +33,86 @@ jobs:
           paths:
             - ~/.npm
             - ~/.cache
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - .cache
+            - app
+
+  testLogin:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/
       - run:
           name: Running E2E tests with multiple reporters for Login.feature
-          command: npm run test-multiple-login
+          command: npm run test-login
       - store_test_results:
+          path: cypress/reports
+      - store_artifacts:
+          path: cypress/reports
+      - store_artifacts:
+          path: cypress/videos
+      - store_artifacts:
+          path: cypress/screenshots
+
+  testPostSearch:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: Running E2E tests with multiple reporters for PostSearch.feature
+          command: npm run test-postsearch
+      - store_test_results:
+          path: cypress/reports
+      - store_artifacts:
+          path: cypress/reports
+      - store_artifacts:
+          path: cypress/videos
+      - store_artifacts:
+          path: cypress/screenshots
+
+  testApi:
+    <<: *defaults
+    parallelism: 1
+    # parallelism: 2
+    parameters:
+      API_method:
+        type: string
+        default: ""
+    steps:
+      # Comment out for tests splitting - need to test
+      # - run:
+      #     name: Split test
+      #     command: |
+      #       circleci tests glob **/integration/apitest/*.feature | circleci tests split --split-by=timings
+      - attach_workspace:
+          at: ~/
+      - when:
+          condition: 
+            equal: [GET, << parameters.API_method >> ]
+          steps:
+            - run:
+                name: Running API tests with multiple reporters for API-GET.feature
+                command: npm run test-api-get
+      - when:
+          condition: 
+            equal: [POST, << parameters.API_method >> ]
+          steps:
+            - run:
+                name: Running API tests with multiple reporters for API-POST.feature
+                command: npm run test-api-post
+      - when:
+          condition: 
+            equal: [PUT, << parameters.API_method >> ]
+          steps:
+            - run:
+                name: Running API tests with multiple reporters for API-PUT.feature
+                command: npm run test-api-put
+      - store_test_results:
+          path: cypress/reports
+      - store_artifacts:
           path: cypress/reports
       - store_artifacts:
           path: cypress/videos
@@ -38,6 +120,48 @@ jobs:
           path: cypress/screenshots
 
 workflows:
-  orb-free-workflow:
+  build-and-test:
     jobs:
-      - test
+      - build
+      - testLogin:
+          requires:
+            - build
+      - testPostSearch:
+          requires:
+            - build
+      - testApi:
+          name: Test API GET
+          API_method: "GET"
+          requires:
+            - build
+      - testApi:
+          name: Test API PUT
+          API_method: "PUT"
+          requires:
+            - build
+            
+  scheduled-workflow:
+    triggers:
+      - schedule:
+          cron: "0 16 20 * *"
+          filters:
+            branches:
+              only: main
+    jobs:
+      - build
+      - testLogin:
+          requires:
+            - build
+      - testPostSearch:
+          requires:
+            - build
+      - testApi:
+          name: Test API GET
+          API_method: "GET"
+          requires:
+            - build
+      - testApi:
+          name: Test API PUT
+          API_method: "PUT"
+          requires:
+            - build

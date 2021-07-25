@@ -11,7 +11,9 @@
     "test-postsearch": "npx cypress run --spec 'cypress/integration/webtest/PostSearch.feature' --browser chrome",
     "test-api-get": "npx cypress run --spec 'cypress/integration/apitest/API-GET.feature'",
     "test-api-post": "npx cypress run --spec 'cypress/integration/apitest/API-POST.feature'",
-    "test-api-put": "npx cypress run --spec 'cypress/integration/apitest/API-PUT.feature'"
+    "test-api-put": "npx cypress run --spec 'cypress/integration/apitest/API-PUT.feature'",
+    "test-api": "npx cypress run --spec 'cypress/integration/apitest/*.feature'",
+    "test-web": "npx cypress run --spec 'cypress/integration/webtest/*.feature'"
   },
   "keywords": [
     "WebUI",

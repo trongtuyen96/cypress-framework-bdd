@@ -39,77 +39,43 @@ jobs:
             - .cache
             - app
 
-  testLogin:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/
-      - run:
-          name: Running E2E tests with multiple reporters for Login.feature
-          command: npm run test-login
-      - store_test_results:
-          path: cypress/reports
-      - store_artifacts:
-          path: cypress/reports
-      - store_artifacts:
-          path: cypress/videos
-      - store_artifacts:
-          path: cypress/screenshots
-
-  testPostSearch:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/
-      - run:
-          name: Running E2E tests with multiple reporters for PostSearch.feature
-          command: npm run test-postsearch
-      - store_test_results:
-          path: cypress/reports
-      - store_artifacts:
-          path: cypress/reports
-      - store_artifacts:
-          path: cypress/videos
-      - store_artifacts:
-          path: cypress/screenshots
-
   testApi:
     <<: *defaults
-    parallelism: 1
-    # parallelism: 2
-    parameters:
-      API_method:
-        type: string
-        default: ""
+    record: true
+    parallel: true 
+    parallelism: 3 
+    group: API tests
     steps:
-      # Comment out for tests splitting - need to test
-      # - run:
-      #     name: Split test
-      #     command: |
-      #       circleci tests glob **/integration/apitest/*.feature | circleci tests split --split-by=timings
       - attach_workspace:
           at: ~/
-      - when:
-          condition: 
-            equal: [GET, << parameters.API_method >> ]
-          steps:
-            - run:
-                name: Running API tests with multiple reporters for API-GET.feature
-                command: npm run test-api-get
-      - when:
-          condition: 
-            equal: [POST, << parameters.API_method >> ]
-          steps:
-            - run:
-                name: Running API tests with multiple reporters for API-POST.feature
-                command: npm run test-api-post
-      - when:
-          condition: 
-            equal: [PUT, << parameters.API_method >> ]
-          steps:
-            - run:
-                name: Running API tests with multiple reporters for API-PUT.feature
-                command: npm run test-api-put
+      - run:
+          name: Split test
+          command: |
+            circleci tests glob **/integration/apitest/*.feature | circleci tests split --split-by=timings
+      - run:
+          name: Running E2E tests with multiple reporters for Api
+          command: npm run test-api
+      - store_test_results:
+          path: cypress/reports
+      - store_artifacts:
+          path: cypress/reports
+      - store_artifacts:
+          path: cypress/videos
+      - store_artifacts:
+          path: cypress/screenshots
+
+  testWeb:
+    <<: *defaults
+    record: true
+    parallel: true 
+    parallelism: 2
+    group: WebUI tests
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: Running E2E tests with multiple reporters for Web
+          command: npm run test-web
       - store_test_results:
           path: cypress/reports
       - store_artifacts:
@@ -123,20 +89,10 @@ workflows:
   build-and-test:
     jobs:
       - build
-      - testLogin:
-          requires:
-            - build
-      - testPostSearch:
-          requires:
-            - build
       - testApi:
-          name: Test API GET
-          API_method: "GET"
           requires:
             - build
-      - testApi:
-          name: Test API PUT
-          API_method: "PUT"
+      - testWeb:
           requires:
             - build
             
@@ -149,19 +105,9 @@ workflows:
               only: main
     jobs:
       - build
-      - testLogin:
-          requires:
-            - build
-      - testPostSearch:
-          requires:
-            - build
       - testApi:
-          name: Test API GET
-          API_method: "GET"
           requires:
             - build
-      - testApi:
-          name: Test API PUT
-          API_method: "PUT"
+      - testWeb:
           requires:
             - build
