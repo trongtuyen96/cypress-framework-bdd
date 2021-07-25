@@ -3,6 +3,9 @@ An automated testing framework based on CypressIO with Behaviour-Driven Developm
 
 [![CircleCI](https://circleci.com/gh/trongtuyen96/cypress-framework-bdd.svg?style=svg&circle-token=7400bd5a15daed35237400a49b510ad756a005a0)](https://app.circleci.com/pipelines/github/trongtuyen96/cypress-framework-bdd)
 [![CypressFrameworkBDD](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/ukewho/main&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/ukewho/runs)
+![GitHub Actions - Main](https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/main.yml/badge.svg)
+![GitHub Actions - Sync Bitbucket](https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/sync-bitbucket-https.yml/badge.svg)
+![GituUb Actions - Sync Gitlab](https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/sync-gitlab-https.yml/badge.svg)
 
 ## Changelogs
 - 05/07/2021: Add cypress-mochawesome-reporter for generating HTMl report
