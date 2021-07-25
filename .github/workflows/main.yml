@@ -23,6 +23,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
+          record: true
           parallel: true
           spec:
             cypress/integration/apitest/API-GET.feature
@@ -54,6 +55,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
+          record: true
           spec:
             cypress/integration/apitest/API-PUT.feature
         env:
@@ -85,6 +87,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
+          record: true
           browser: chrome
           spec:
             cypress/integration/webtest/Login.feature
@@ -117,6 +120,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
+          record: true
           browser: chrome
           spec:
             cypress/integration/webtest/PostSearch.feature
