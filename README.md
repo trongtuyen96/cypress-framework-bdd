@@ -1,7 +1,6 @@
 <h1 align="center">
   <br>
   <a><img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/master/covers/ATWT_background.PNG" alt="background"></a>
-    <a><img src="https://github.com/trongtuyen96/automation-test-framework-api-lite/blob/master/covers/rest_api_lite_badge.png" alt="rest api badge"></a>
   <br>
   Cypress POM BDD Automation Test Framework
   <br>
