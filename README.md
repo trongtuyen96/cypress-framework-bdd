@@ -7,7 +7,7 @@
 </h1>
 
 <h3 align="center">
-   <a><img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/master/covers/badge.PNG" alt="badge"></a>
+   <a><img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/master/covers/badge.png" alt="badge"></a>
 </h3> 
 
 <h3 align="center" style="bold">An automation testing framework based on Cypress for REST API and WebUI testing using Page Object Model, Cucumber BDD, Mocha, Lighthouse and CI intergrated with Github Actions, CircleCI, GitlabCI and Bitbucket Pipelines.</h3>
