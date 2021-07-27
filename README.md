@@ -24,14 +24,7 @@
 - [Installation](#installation)
 - [Basic usage](#basicusage)
 - [Write test](#writetest)
-- [Reports](#reports)
-- [Visual regression test](#visualregressiontest)
-- [Performance test with Lighthouse-Pa11y](#performancetestwithlighthouse-pa11y)
-- [Github Actions Integrated](#githubactionsintegrated)
-- [CircleCI Integrated](#circleciintegrated)
-- [GitlabCI Integrated](#gitlabciintegrated)
-- [Bitbucket Pipelines Integrated](#bitbucketpipelinesintegrated)
-- [Parallel runs](#parallelruns)
+- [Set up](#setup)
 - [Author](#author)
 - [License](#license)
 
@@ -73,11 +66,6 @@ npm install
 #### Open cypress
 ```bash
 npx cypress open
-```
-or
-
-```bash
-npm run cypress:open
 ```
 
 #### Run all features
