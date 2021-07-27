@@ -12,11 +12,13 @@
 
 <h3 align="center" style="bold">An automation testing framework based on Cypress for REST API and WebUI testing using Page Object Model, Cucumber BDD, Mocha, Lighthouse and CI intergrated with Github Actions, CircleCI, GitlabCI and Bitbucket Pipelines.</h3>
 
+<h4 align="center">
 [![CircleCI](https://circleci.com/gh/trongtuyen96/cypress-framework-bdd.svg?style=svg&circle-token=7400bd5a15daed35237400a49b510ad756a005a0)](https://app.circleci.com/pipelines/github/trongtuyen96/cypress-framework-bdd)
 [![CypressFrameworkBDD](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/ukewho/main&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/ukewho/runs)
 ![GitHub Actions - Main](https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/main.yml/badge.svg)
 ![GitHub Actions - Sync Bitbucket](https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/sync-bitbucket-https.yml/badge.svg)
 ![GituUb Actions - Sync Gitlab](https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/sync-gitlab-https.yml/badge.svg)
+</h4>
 
 ## Table of Contents
 - [Key Example](#key-examples)
