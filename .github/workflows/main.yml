@@ -25,6 +25,7 @@ jobs:
         with:
           # record: true
           # parallel: true
+          # group: API-Test
           spec:
             cypress/integration/apitest/*.feature
         env:
@@ -41,7 +42,7 @@ jobs:
           path: cypress/screenshots
       - name: Upload videos
         uses: actions/upload-artifact@v2
-        if: always()
+        if: failure()
         with:
           name: cypress-videos
           path: cypress/videos
@@ -80,7 +81,7 @@ jobs:
           path: cypress/screenshots
       - name: Upload videos
         uses: actions/upload-artifact@v2
-        if: always()
+        if: failure()
         with:
           name: cypress-videos
           path: cypress/videos
