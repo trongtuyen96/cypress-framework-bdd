@@ -1,9 +1,9 @@
 import { Given, Then, When, And } from 'cypress-cucumber-preprocessor/steps';
+import Homepage from '../pages/homePage.page'
 import LoginPage from '../pages/loginPage.page';
-import HomePage from '../pages/homePage.page';
 
 const loginpage = new LoginPage();
-const homepage = new HomePage();
+const homepage = new Homepage();
 
 Given('user launches the ATWT website', () => {
     homepage.launchWebsite();
