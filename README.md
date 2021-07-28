@@ -1,19 +1,28 @@
 <h1 align="center">
   <br>
-  <a><img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/master/covers/ATWT_background.PNG" alt="background"></a>
-  <a><img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/master/covers/badge.png" alt="badge"></a>
-  <br>
-  Cypress POM BDD Automation Test Framework
-  <br>
+  <a><img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/ce94a0a9652fead7594800448ae5b147471bc1cc/covers/ATWT_background.PNG" alt="background"></a>
+  <a><img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/ce94a0a9652fead7594800448ae5b147471bc1cc/covers/badge.png" alt="badge" width="800px"></a>
 </h1>
 
 <h3 align="center" style="bold">An automation testing framework based on Cypress for REST API and WebUI testing using Page Object Model, Cucumber BDD, Mocha, Lighthouse and CI intergrated with Github Actions, CircleCI, GitlabCI and Bitbucket Pipelines.</h3>
 
-[![CircleCI](https://circleci.com/gh/trongtuyen96/cypress-framework-bdd.svg?style=svg&circle-token=7400bd5a15daed35237400a49b510ad756a005a0)](https://app.circleci.com/pipelines/github/trongtuyen96/cypress-framework-bdd)
-[![CypressFrameworkBDD](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/ukewho/main&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/ukewho/runs)
-![GitHub Actions - Main](https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/main.yml/badge.svg)
-![GitHub Actions - Sync Bitbucket](https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/sync-bitbucket-https.yml/badge.svg)
-![GituUb Actions - Sync Gitlab](https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/sync-gitlab-https.yml/badge.svg)
+<p align="center">
+  <a alt="CircleCI" href="https://app.circleci.com/pipelines/github/trongtuyen96/cypress-framework-bdd">
+    <img src="https://circleci.com/gh/trongtuyen96/cypress-framework-bdd.svg?style=svg&circle-token=7400bd5a15daed35237400a49b510ad756a005a0">
+  </a>
+  <a alt="CypressFrameworkBDD" href="https://dashboard.cypress.io/projects/ukewho/runs">
+    <img src="https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/ukewho/main&style=flat&logo=cypress">
+  </a>
+  <a alt="GitHub Actions - Main" href="https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/main.yml">
+    <img src="https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/main.yml/badge.svg">
+  </a>
+  <a alt="GitHub Actions - Sync Bitbucket" href="https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/sync-bitbucket-https.yml">
+    <img src="https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/sync-bitbucket-https.yml/badge.svg">
+  </a>
+  <a alt="GituUb Actions - Sync Gitlab" href="https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/sync-gitlab-https.yml">
+    <img src="https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/sync-gitlab-https.yml/badge.svg">
+  </a>
+</p>
 
 ## Table of Contents
 - [Changelogs](#changelogs)
