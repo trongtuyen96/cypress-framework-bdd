@@ -28,9 +28,9 @@
 - [Changelogs](#changelogs)
 - [Features](#features)
 - [Installation](#installation)
-- [Basic usage](#basicusage)
-- [Write test](#writetest)
-- [Set up](#setup)
+- [Basic Usage](#basic-usage)
+- [Write Test](#write-test)
+- [Set Up](#set-up)
 - [Author](#author)
 - [License](#license)
 
@@ -101,7 +101,100 @@ npx cypress run --spec "cypress/integration/webtest/Login.feature,cypress/integr
 
 More details: https://docs.cypress.io/guides/guides/command-line
 
+## Write test
+#### Write BBD Test Case
+- Head to cypress/integration and create new .feature file
+- Specify the steps with BDD keywords (Feature, Scenario, Given, When, And, Then, ...)
 
+Example with simple steps
+<p align="center">
+    <img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/9203c494a88fc47cede2c089d2f6519a78f1d859/covers/write_test_1.png" width="500px">
+</p>
+
+Example with Scenario Outline
+<p align="center">
+    <img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/9203c494a88fc47cede2c089d2f6519a78f1d859/covers/write_test_2.png" width="500px">
+</p>
+
+#### Add locator file for pages in test
+- Head to cypress/support/locators and create new .locators.js file
+- Define locators and export those elements
+
+Example Login Page locators
+<p align="center">
+    <img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/9203c494a88fc47cede2c089d2f6519a78f1d859/covers/write_test_3.png" width="500px">
+</p>
+
+#### Add page files with methods
+- Head to cypress/support/pages and create new .page.js file
+- Call the locators of pages by require(<path to locator file>)
+- Write methods that supports your test validations/actions
+	
+Example Login Page 
+<p align="center">
+    <img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/329b19a81ad59e629dce8003de63d469a1b7a782/covers/write_test_4.png" width="500px">
+</p>
+	
+#### Define steps for each feature
+- Head to cypress/support/step_definitions and create new .steps.js file
+- Write test steps with methods defined in .pages.js file
+	
+Example Post Search steps
+<p align="center">
+    <img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/329b19a81ad59e629dce8003de63d469a1b7a782/covers/write_test_5.png" width="500px">
+</p>
+	
+## Set Up
+#### Multiple reports option
+1. Install cypress-multi-reporters by
+```bash
+npm install --save-dev cypress-multi-reporters
+```
+2. Install cypress-mochawesome-reporter and mocha-junit-reporter
+```bash
+npm install --save-dev cypress-mochawesome-reporter,mocha-junit-reporter
+```
+3. Config reporter in cypress.json
+    - Define the reports we want to use by "reporterEnabled" tag
+    - For Mocha Junit Report:
+        - "mochaFile" to define the output report structure
+        - [hash] to generate hash string which helps distinquish report files
+        - "jenkinsMode" to generate more beautiful report displayed on Jenkins
+    - For Mochawesome Report:
+        - "chart" to include chart counts
+        - "reportPageTitle" to specify report title
+        - "reportFilename" and "reportDir" to specify name and locations of output reports
+        - "embeddedScreenshots" to attach screenshots for failed cases
+        - "timestamp" to append timestamp to report name, prevent replacement
+
+<p align="center">
+    <img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/329b19a81ad59e629dce8003de63d469a1b7a782/covers/reports.png" width="500px">
+</p>
+	
+4. After executions, reports are located in cypress/reports
+5. Head to <a href="https://www.npmjs.com/package/cypress-multi-reporters">cypress-multi-reporters</a> for more configurations
+
+#### Performance Testing with Google Lighthouse and Pa11y
+1. Install cypress-audit by
+```bash
+npm install --save-dev cypress-audit
+```
+2. Set up prepareAudit when brower launch in /plugin/index.js
+```bash
+on('before:browser:launch', (browser = {}, launchOptions) => {
+    prepareAudit(launchOptions); });
+```
+3. Set up task to write test result into report files
+4. Use cy.lighthouse() or cy.pa11y() to run performance testing
+
+Example step definitions with custom threshold for Lighthouse
+<p align="center">
+    <img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/329b19a81ad59e629dce8003de63d469a1b7a782/covers/performance.png" width="500px">
+</p>
+
+5. After executions, reports are located in cypress/reports
+
+	
 - Update snapshot
 npx cypress run --env updateSnapshots=true --spec cypress/integration/webtest/Login.feature --browser chrome
 
