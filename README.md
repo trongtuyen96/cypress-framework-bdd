@@ -35,18 +35,29 @@
 - [License](#license)
 
 ## Changelogs
-- 05/07/2021: Add cypress-mochawesome-reporter for generating HTMl report
-- 06/07/2021: Add cypress-multi-reporters for generating both Junit and Mocha reports
-- 07/07/2021: Add cypress-Plugin-snapshot for comparing snapshots
-- 09/07/2021: Add cypress-audit with Lighthouse and Pa11y for performance testing
-- 11/07/2021: Add CircleCI with cypress docker images
-- 12/07/2021: Add CircleCI with conditional workflows
-- 13/07/2021: Add store_artifacts to store test result reports
-- 15/07/2021: Add Github Workflows
-- 17/07/2021: Add Gitlab CI
-- 19/07/2021: Add Github Workflows to pull code from Github and sync to Bitbucket
-- 20/07/2021: Add Github Workflows to pull code from Github and sync to Gitlab
-- 24/07/2021: Update parallel run with Cypress Dashboard
+:star: 05/07/2021: Add cypress-mochawesome-reporter for generating HTMl report
+
+:star: 06/07/2021: Add cypress-multi-reporters for generating both Junit and Mocha reports
+
+:star: 07/07/2021: Add cypress-Plugin-snapshot for comparing snapshots
+
+:star: 09/07/2021: Add cypress-audit with Lighthouse and Pa11y for performance testing
+
+:star: 11/07/2021: Add CircleCI with cypress docker images
+
+:star: 12/07/2021: Add CircleCI with conditional workflows
+
+:star: 13/07/2021: Add store_artifacts to store test result reports
+
+:star: 15/07/2021: Add Github Workflows
+
+:star: 17/07/2021: Add Gitlab CI
+
+:star: 19/07/2021: Add Github Workflows to pull code from Github and sync to Bitbucket
+
+:star: 20/07/2021: Add Github Workflows to pull code from Github and sync to Gitlab
+
+:star: 24/07/2021: Update parallel run with Cypress Dashboard
 
 ## Features
 :gear: Testing across REST API and Web UI applications
@@ -140,8 +151,8 @@ Example Login Page locators
 - Call the locators of pages by require(<path to locator file>)
 - Write methods that supports your test validations/actions
 	
-Example Login Page 
 <p align="center">
+Example Login Page 
     <img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/329b19a81ad59e629dce8003de63d469a1b7a782/covers/write_test_4.png" width="500px">
 </p>
 	
@@ -149,8 +160,9 @@ Example Login Page
 - Head to cypress/support/step_definitions and create new .steps.js file
 - Write test steps with methods defined in .pages.js file
 	
-Example Post Search steps
+
 <p align="center">
+	Example Post Search steps
     <img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/329b19a81ad59e629dce8003de63d469a1b7a782/covers/write_test_5.png" width="500px">
 </p>
 	
@@ -197,8 +209,8 @@ on('before:browser:launch', (browser = {}, launchOptions) => {
 3. Set up task to write test result into report files
 4. Use cy.lighthouse() or cy.pa11y() to run performance testing
 
-Example step definitions with custom threshold for Lighthouse
 <p align="center">
+Example step definitions with custom threshold for Lighthouse
     <img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/329b19a81ad59e629dce8003de63d469a1b7a782/covers/performance.png" width="500px">
 </p>
 
