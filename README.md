@@ -25,6 +25,7 @@
 </p>
 
 ## Table of Contents
+
 - [Changelogs](#changelogs)
 - [Features](#features)
 - [Installation](#installation)
@@ -35,11 +36,12 @@
 - [License](#license)
 
 ## Changelogs
+
 :star: 05/07/2021: Add cypress-mochawesome-reporter for generating HTMl report
 
 :star: 06/07/2021: Add cypress-multi-reporters for generating both Junit and Mocha reports
 
-:star: 07/07/2021: Add cypress-Plugin-snapshot for comparing snapshots
+:star: 07/07/2021: Add cypress-plugin-snapshot for comparing snapshots
 
 :star: 09/07/2021: Add cypress-audit with Lighthouse and Pa11y for performance testing
 
@@ -60,6 +62,7 @@
 :star: 24/07/2021: Update parallel run with Cypress Dashboard
 
 ## Features
+
 :gear: Testing across REST API and Web UI applications
 
 :gear: Multiple browser automation
@@ -82,100 +85,107 @@
 
 
 ## Installation
+
 Use npm to install the dependencies
 
 ```bash
-npm install
+    npm install
 ```
 
 ## Basic Usage
 
 #### Open cypress
+
 ```bash
-npx cypress open
+    npx cypress open
 ```
 
 #### Run all features
+
 ```bash
-npx cypress run 
+    npx cypress run 
 ```
 
 #### Run all features on specific browser
+
 ```bash
-npx cypress run --browser firefox
+    npx cypress run --browser firefox
 ```
 
 #### Run all features on headless mode
+
 ```bash
-npx cypress run --headless
+    npx cypress run --headless
 ```
 
 #### Run a specific feature file
+
 ```bash
-npx cypress run --spec cypress/integration/{featurefile.feature}
+    npx cypress run --spec cypress/integration/{featurefile.feature}
 ```
 
 #### Run multiple feature files
+
 ```bash
-npx cypress run --spec "cypress/integration/webtest/Login.feature,cypress/integration/webtest/PostSearch.feature"  --browser chrome
+    npx cypress run --spec "cypress/integration/webtest/*.feature"  --browser chrome
 ```
 
 More details: https://docs.cypress.io/guides/guides/command-line
 
 ## Write test
+
 #### Write BBD Test Case
+
 - Head to cypress/integration and create new .feature file
 - Specify the steps with BDD keywords (Feature, Scenario, Given, When, And, Then, ...)
 
 <p align="center">
-	<p>Example with simple steps</p>
     <img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/9203c494a88fc47cede2c089d2f6519a78f1d859/covers/write_test_1.png" width="500px">
 </p>
 
 <p align="center">
-	<p>Example with Scenario Outline</p>
     <img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/9203c494a88fc47cede2c089d2f6519a78f1d859/covers/write_test_2.png" width="500px">
 </p>
 
 #### Add locator file for pages in test
+
 - Head to cypress/support/locators and create new .locators.js file
 - Define locators and export those elements
 
-
 <p align="center">
-	<p>Example Login Page locators</p>
     <img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/9203c494a88fc47cede2c089d2f6519a78f1d859/covers/write_test_3.png" width="500px">
 </p>
 
 #### Add page files with methods
+
 - Head to cypress/support/pages and create new .page.js file
 - Call the locators of pages by require(<path to locator file>)
 - Write methods that supports your test validations/actions
 	
 <p align="center">
-	<p>Example Login Page</p> 
     <img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/329b19a81ad59e629dce8003de63d469a1b7a782/covers/write_test_4.png" width="500px">
 </p>
 	
 #### Define steps for each feature
+	
 - Head to cypress/support/step_definitions and create new .steps.js file
 - Write test steps with methods defined in .pages.js file
 	
-
 <p align="center">
-	<p>Example Post Search steps</p>
     <img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/329b19a81ad59e629dce8003de63d469a1b7a782/covers/write_test_5.png" width="500px">
 </p>
 	
 ## Set Up
+	
 #### Multiple reports option
-1. Install cypress-multi-reporters by
+	
+1. Install cypress-multi-reporters
 ```bash
-npm install --save-dev cypress-multi-reporters
+    npm install --save-dev cypress-multi-reporters
 ```
 2. Install cypress-mochawesome-reporter and mocha-junit-reporter
 ```bash
-npm install --save-dev cypress-mochawesome-reporter,mocha-junit-reporter
+    npm install --save-dev cypress-mochawesome-reporter,mocha-junit-reporter
 ```
 3. Config reporter in cypress.json
     - Define the reports we want to use by "reporterEnabled" tag
@@ -197,37 +207,81 @@ npm install --save-dev cypress-mochawesome-reporter,mocha-junit-reporter
 4. After executions, reports are located in cypress/reports
 5. Head to <a href="https://www.npmjs.com/package/cypress-multi-reporters">cypress-multi-reporters</a> for more configurations
 
-#### Performance Testing with Google Lighthouse and Pa11y
-1. Install cypress-audit by
+#### Visual regression testing
+	
+1. Install cypress-pugin-snapshots
 ```bash
-npm install --save-dev cypress-audit
+    npm install --save-dev cypress-plugin-snapshots
+```
+2. Add this config to cypress.json file
+```bash
+    "ignoreTestFiles": [
+      "**/__snapshots__/*",
+      "**/__image_snapshots__/*"
+    ]
+```
+3. Modify /plugin/index.js with 
+```bash
+    const { initPlugin } = require('cypress-plugin-snapshots/plugin');
+
+    module.exports = (on, config) => {
+        initPlugin(on, config);
+    }
+```
+4. Import this into /support/index.js
+```bash
+    import 'cypress-plugin-snapshots/commands';
+```
+5. Config the settings
+<p align="center">
+    <img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/025be01e7befa40b673feeabed466c3cf3d3ea13/covers/snapshots.png" width="300px">
+</p>
+
+6. Take snapshot
+```bash
+    cy.toMatchSnapshot();
+
+    cy.get(<element>).toMatchSnapshot();
+```
+7. Run the test the first time to get the base snapshots
+
+8. To update snapshots when there are changes where expected
+```bash
+    npx cypress run --env updateSnapshots=true --spec cypress/integration/webtest/Login.feature --browser chrome
+```
+
+9. Head to <a href="https://www.npmjs.com/package/cypress-plugin-snapshots">cypress-plugin-snapshots</a> for more configurations
+	
+#### Performance Testing with Google Lighthouse and Pa11y
+	
+1. Install cypress-audit
+```bash
+    npm install --save-dev cypress-audit
 ```
 2. Set up prepareAudit when brower launch in /plugin/index.js
 ```bash
-on('before:browser:launch', (browser = {}, launchOptions) => {
-    prepareAudit(launchOptions); });
+    on('before:browser:launch', (browser = {}, launchOptions) => {
+        prepareAudit(launchOptions); });
 ```
 3. Set up task to write test result into report files
 4. Use cy.lighthouse() or cy.pa11y() to run performance testing
 
 <p align="center">
-<p>Example step definitions with custom threshold for Lighthouse</p>
     <img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/329b19a81ad59e629dce8003de63d469a1b7a782/covers/performance.png" width="500px">
 </p>
 
 5. After executions, reports are located in cypress/reports
 
 	
-- Update snapshot
-npx cypress run --env updateSnapshots=true --spec cypress/integration/webtest/Login.feature --browser chrome
 
 ## Author
+	
 <h4 align="center">
 	Tuyen Nguyen - Senior QA Automation Engineer
-	</h4>
-	<h5 align="center">
+</h4>
+    <h5 align="center">
 	<a href="trongtuyen96@gmail.com">trongtuyen96@gmail.com</a>
-	</h5>
+    </h5>
 <p align="center">
 	 <a alt="Github" href="https://github.com/trongtuyen96">
     <img src="https://user-images.githubusercontent.com/25218255/47360756-794c1f00-d6fa-11e8-86fa-7b1c2e4dda92.png" width="50">
@@ -241,6 +295,7 @@ npx cypress run --env updateSnapshots=true --spec cypress/integration/webtest/Lo
 </p>
 
 ## License
+	
 ~~~~
 Copyright 2021 Tuyen Nguyen
 
