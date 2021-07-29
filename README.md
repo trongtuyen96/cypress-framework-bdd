@@ -127,13 +127,13 @@ More details: https://docs.cypress.io/guides/guides/command-line
 - Head to cypress/integration and create new .feature file
 - Specify the steps with BDD keywords (Feature, Scenario, Given, When, And, Then, ...)
 
-Example with simple steps
 <p align="center">
+	<p>Example with simple steps</p>
     <img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/9203c494a88fc47cede2c089d2f6519a78f1d859/covers/write_test_1.png" width="500px">
 </p>
 
-Example with Scenario Outline
 <p align="center">
+	<p>Example with Scenario Outline</p>
     <img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/9203c494a88fc47cede2c089d2f6519a78f1d859/covers/write_test_2.png" width="500px">
 </p>
 
@@ -141,8 +141,9 @@ Example with Scenario Outline
 - Head to cypress/support/locators and create new .locators.js file
 - Define locators and export those elements
 
-Example Login Page locators
+
 <p align="center">
+	<p>Example Login Page locators</p>
     <img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/9203c494a88fc47cede2c089d2f6519a78f1d859/covers/write_test_3.png" width="500px">
 </p>
 
@@ -152,7 +153,7 @@ Example Login Page locators
 - Write methods that supports your test validations/actions
 	
 <p align="center">
-Example Login Page 
+	<p>Example Login Page</p> 
     <img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/329b19a81ad59e629dce8003de63d469a1b7a782/covers/write_test_4.png" width="500px">
 </p>
 	
@@ -162,7 +163,7 @@ Example Login Page
 	
 
 <p align="center">
-	Example Post Search steps
+	<p>Example Post Search steps</p>
     <img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/329b19a81ad59e629dce8003de63d469a1b7a782/covers/write_test_5.png" width="500px">
 </p>
 	
@@ -210,7 +211,7 @@ on('before:browser:launch', (browser = {}, launchOptions) => {
 4. Use cy.lighthouse() or cy.pa11y() to run performance testing
 
 <p align="center">
-Example step definitions with custom threshold for Lighthouse
+<p>Example step definitions with custom threshold for Lighthouse</p>
     <img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/329b19a81ad59e629dce8003de63d469a1b7a782/covers/performance.png" width="500px">
 </p>
 
