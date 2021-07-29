@@ -35,30 +35,51 @@
 - [License](#license)
 
 ## Changelogs
-- 05/07/2021: Add cypress-mochawesome-reporter for generating HTMl report
-- 06/07/2021: Add cypress-multi-reporters for generating both Junit and Mocha reports
-- 07/07/2021: Add cypress-Plugin-snapshot for comparing snapshots
-- 09/07/2021: Add cypress-audit with Lighthouse and Pa11y for performance testing
-- 11/07/2021: Add CircleCI with cypress docker images
-- 12/07/2021: Add CircleCI with conditional workflows
-- 13/07/2021: Add store_artifacts to store test result reports
-- 15/07/2021: Add Github Workflows
-- 17/07/2021: Add Gitlab CI
-- 19/07/2021: Add Github Workflows to pull code from Github and sync to Bitbucket
-- 20/07/2021: Add Github Workflows to pull code from Github and sync to Gitlab
-- 24/07/2021: Update parallel run with Cypress Dashboard
+:star: 05/07/2021: Add cypress-mochawesome-reporter for generating HTMl report
+
+:star: 06/07/2021: Add cypress-multi-reporters for generating both Junit and Mocha reports
+
+:star: 07/07/2021: Add cypress-Plugin-snapshot for comparing snapshots
+
+:star: 09/07/2021: Add cypress-audit with Lighthouse and Pa11y for performance testing
+
+:star: 11/07/2021: Add CircleCI with cypress docker images
+
+:star: 12/07/2021: Add CircleCI with conditional workflows
+
+:star: 13/07/2021: Add store_artifacts to store test result reports
+
+:star: 15/07/2021: Add Github Workflows
+
+:star: 17/07/2021: Add Gitlab CI
+
+:star: 19/07/2021: Add Github Workflows to pull code from Github and sync to Bitbucket
+
+:star: 20/07/2021: Add Github Workflows to pull code from Github and sync to Gitlab
+
+:star: 24/07/2021: Update parallel run with Cypress Dashboard
 
 ## Features
-- Testing across REST API and Web UI applications
-- Multiple browser automation
-- Multiple reports (JSON, html) with failed screenshots attached
-- CI integrated (CircleCI, Github Actions, GitlabCI, Bitbucket Pipelines)
-- Performance testing with Lighthouse and Pa11y
-- Visual regression testing supported
-- Page Object Model with Cucumber BDD
-- Parallel runs with CI provider
-- Parallel runs with Cypress Dashboard
-- And other functions inherited from Cypress
+:gear: Testing across REST API and Web UI applications
+
+:gear: Multiple browser automation
+
+:gear: Multiple reports (JSON, html) with failed screenshots attached
+
+:gear: CI integrated (CircleCI, Github Actions, GitlabCI, Bitbucket Pipelines)
+
+:gear: Performance testing with Lighthouse and Pa11y
+
+:gear: Visual regression testing supported
+
+:gear: Page Object Model with Cucumber BDD
+
+:gear: Parallel runs with CI provider
+
+:gear: Parallel runs with Cypress Dashboard
+
+:gear: And other functions inherited from Cypress
+
 
 ## Installation
 Use npm to install the dependencies
@@ -106,13 +127,13 @@ More details: https://docs.cypress.io/guides/guides/command-line
 - Head to cypress/integration and create new .feature file
 - Specify the steps with BDD keywords (Feature, Scenario, Given, When, And, Then, ...)
 
-Example with simple steps
 <p align="center">
+	<p>Example with simple steps</p>
     <img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/9203c494a88fc47cede2c089d2f6519a78f1d859/covers/write_test_1.png" width="500px">
 </p>
 
-Example with Scenario Outline
 <p align="center">
+	<p>Example with Scenario Outline</p>
     <img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/9203c494a88fc47cede2c089d2f6519a78f1d859/covers/write_test_2.png" width="500px">
 </p>
 
@@ -120,8 +141,9 @@ Example with Scenario Outline
 - Head to cypress/support/locators and create new .locators.js file
 - Define locators and export those elements
 
-Example Login Page locators
+
 <p align="center">
+	<p>Example Login Page locators</p>
     <img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/9203c494a88fc47cede2c089d2f6519a78f1d859/covers/write_test_3.png" width="500px">
 </p>
 
@@ -130,8 +152,8 @@ Example Login Page locators
 - Call the locators of pages by require(<path to locator file>)
 - Write methods that supports your test validations/actions
 	
-Example Login Page 
 <p align="center">
+	<p>Example Login Page</p> 
     <img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/329b19a81ad59e629dce8003de63d469a1b7a782/covers/write_test_4.png" width="500px">
 </p>
 	
@@ -139,8 +161,9 @@ Example Login Page
 - Head to cypress/support/step_definitions and create new .steps.js file
 - Write test steps with methods defined in .pages.js file
 	
-Example Post Search steps
+
 <p align="center">
+	<p>Example Post Search steps</p>
     <img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/329b19a81ad59e629dce8003de63d469a1b7a782/covers/write_test_5.png" width="500px">
 </p>
 	
@@ -187,8 +210,8 @@ on('before:browser:launch', (browser = {}, launchOptions) => {
 3. Set up task to write test result into report files
 4. Use cy.lighthouse() or cy.pa11y() to run performance testing
 
-Example step definitions with custom threshold for Lighthouse
 <p align="center">
+<p>Example step definitions with custom threshold for Lighthouse</p>
     <img src="https://github.com/trongtuyen96/cypress-framework-bdd/blob/329b19a81ad59e629dce8003de63d469a1b7a782/covers/performance.png" width="500px">
 </p>
 
