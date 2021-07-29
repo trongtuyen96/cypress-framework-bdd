@@ -39,7 +39,20 @@ Cypress.Server.defaults({
 });
 
 const options = {
-    collectTypes : ['cy:log', 'cy:xhr', 'cy:request', 'cy:route', 'cy:command']
+    collectTypes: ['cy:log', 'cy:xhr', 'cy:request', 'cy:route', 'cy:command']
 };
 
 require('cypress-terminal-report/src/installLogsCollector')(options);
+
+// fix issue with run all test of cypress-plugin-snapshots
+export const fixCypressSpec = filename => () => {
+    const path = require('path');
+    const relative = filename;
+    const projectRoot = Cypress.config('projectRoot');
+    const absolute = path.join(projectRoot, relative);
+    Cypress.spec = {
+        absolute,
+        name: path.basename(filename),
+        relative
+    }
+}

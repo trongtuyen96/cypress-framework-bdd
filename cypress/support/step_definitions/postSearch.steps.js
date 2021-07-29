@@ -1,11 +1,14 @@
 import { Given, Then, When, And } from 'cypress-cucumber-preprocessor/steps';
 import PostPage from '../pages/postPage.page';
-import Homepage from '../pages/homePage.page'
+import Homepage from '../pages/homePage.page';
+import { fixCypressSpec } from '../index';
 
 const homepage = new Homepage();
 const postpage = new PostPage();
 
-Then('it should display banner image correctly',()=>{
+beforeEach(fixCypressSpec(__filename));
+
+Then('it should display banner image correctly', () => {
     homepage.verifyBannerImage();
 })
 
