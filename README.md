@@ -49,16 +49,16 @@
 - 24/07/2021: Update parallel run with Cypress Dashboard
 
 ## Features
-- Testing across REST API and Web UI applications
-- Multiple browser automation
-- Multiple reports (JSON, html) with failed screenshots attached
-- CI integrated (CircleCI, Github Actions, GitlabCI, Bitbucket Pipelines)
-- Performance testing with Lighthouse and Pa11y
-- Visual regression testing supported
-- Page Object Model with Cucumber BDD
-- Parallel runs with CI provider
-- Parallel runs with Cypress Dashboard
-- And other functions inherited from Cypress
+:gear: Testing across REST API and Web UI applications
+:gear: Multiple browser automation
+:gear: Multiple reports (JSON, html) with failed screenshots attached
+:gear: CI integrated (CircleCI, Github Actions, GitlabCI, Bitbucket Pipelines)
+:gear: Performance testing with Lighthouse and Pa11y
+:gear: Visual regression testing supported
+:gear: Page Object Model with Cucumber BDD
+:gear: Parallel runs with CI provider
+:gear: Parallel runs with Cypress Dashboard
+:gear: And other functions inherited from Cypress
 
 ## Installation
 Use npm to install the dependencies
