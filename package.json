@@ -34,7 +34,7 @@
   "homepage": "https://github.com/trongtuyen96/cypress-framework#readme",
   "dependencies": {},
   "devDependencies": {
-    "cypress": "7.7.0",
+    "cypress": "8.1.0",
     "cypress-audit": "1.0.0",
     "cypress-cucumber-preprocessor": "4.1.4",
     "cypress-mochawesome-reporter": "2.2.0",
