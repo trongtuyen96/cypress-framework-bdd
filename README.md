@@ -177,7 +177,7 @@ More details: https://docs.cypress.io/guides/guides/command-line
 	
 ## Set Up
 	
-#### Multiple reports option
+### Multiple reports option
 	
 1. Install cypress-multi-reporters
 ```bash
@@ -207,7 +207,7 @@ More details: https://docs.cypress.io/guides/guides/command-line
 4. After executions, reports are located in cypress/reports
 5. Head to <a href="https://www.npmjs.com/package/cypress-multi-reporters">cypress-multi-reporters</a> for more configurations
 
-#### Visual regression testing
+### Visual regression testing
 	
 1. Install cypress-pugin-snapshots
 ```bash
@@ -252,7 +252,7 @@ More details: https://docs.cypress.io/guides/guides/command-line
 
 9. Head to <a href="https://www.npmjs.com/package/cypress-plugin-snapshots">cypress-plugin-snapshots</a> for more configurations
 	
-#### Performance Testing with Google Lighthouse and Pa11y
+### Performance Testing with Google Lighthouse and Pa11y
 	
 1. Install cypress-audit
 ```bash
@@ -271,8 +271,6 @@ More details: https://docs.cypress.io/guides/guides/command-line
 </p>
 
 5. After executions, reports are located in cypress/reports
-
-	
 
 ## Author
 	
