@@ -5,7 +5,7 @@ defaults: &defaults
   working_directory: ~/app
   docker:
     # the Docker image with Cypress dependencies
-    - image: cypress/included:7.7.0
+    - image: cypress/included:8.1.0
       environment:
         ## this enables colors in the output
         TERM: xterm
