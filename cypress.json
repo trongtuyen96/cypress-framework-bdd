@@ -6,17 +6,17 @@
         "password": "b",
         "cypress-plugin-snapshots": {
             "imageConfig": {
-                "createDiffImage": true, 
-                "threshold": 0.01, 
+                "createDiffImage": true,
+                "threshold": 0.01,
                 "thresholdType": "percent"
             },
-            "autoCleanUp": false,           
-            "autopassNewSnapshots": true,    
-            "diffLines": 3,                  
-            "excludeFields": [],             
-            "ignoreExtraArrayItems": false,  
-            "ignoreExtraFields": false,      
-            "normalizeJson": true,           
+            "autoCleanUp": false,
+            "autopassNewSnapshots": true,
+            "diffLines": 3,
+            "excludeFields": [],
+            "ignoreExtraArrayItems": false,
+            "ignoreExtraFields": false,
+            "normalizeJson": true,
             "prettier": true
         }
     },
@@ -31,7 +31,9 @@
             "charts": true,
             "reportPageTitle": "My Test Suite",
             "reportFilename": "Report",
-            "files": ["cypress/reports/mochawesome/*.json"],
+            "files": [
+                "cypress/reports/mochawesome/*.json"
+            ],
             "embeddedScreenshots": true,
             "inlineAssets": true,
             "timestamp": "mmddyyyy_HHMMss"
@@ -41,5 +43,9 @@
     "ignoreTestFiles": [
         "**/__snapshots__/*",
         "**/__image_snapshots__/*"
-    ]
+    ],
+    "retries": {
+        "runMode": 2,
+        "openMode": 0
+    }
 }
