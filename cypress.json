@@ -31,7 +31,7 @@
             "charts": true,
             "reportPageTitle": "My Test Suite",
             "reportFilename": "Report",
-            "reportDir": "cypress/reports/mochawesome",
+            "files": ["cypress/reports/mochawesome/*.json"],
             "embeddedScreenshots": true,
             "inlineAssets": true,
             "timestamp": "mmddyyyy_HHMMss"
