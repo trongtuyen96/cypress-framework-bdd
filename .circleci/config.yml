@@ -82,13 +82,22 @@ jobs:
 workflows:
   build-and-test:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              only: main
       - testApi:
           requires:
             - build
+          filters:
+            branches:
+              only: main
       - testWeb:
           requires:
             - build
+          filters:
+            branches:
+              only: main
             
   scheduled-workflow:
     triggers:
