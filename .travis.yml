@@ -23,7 +23,7 @@ cache:
 webtest: &webtest
   script:
     # print all Travis environment variables for debugging
-    - $(npm bin)/print-env TRAVIS
+    # - $(npm bin)/print-env TRAVIS
     - npx cypress run --record --parallel --group $STAGE_NAME --browser chrome --spec "cypress/integration/webtest/*.feature"
     # after all tests finish running we need
     # to kill all background jobs (like "npm start &")
