@@ -1,5 +1,9 @@
 language: node_js
 
+branches:
+  only:
+  - main
+
 node_js:
   - 12
 
@@ -22,18 +26,24 @@ cache:
 
 webtest: &webtest
   script:
-    # print all Travis environment variables for debugging
-    # - $(npm bin)/print-env TRAVIS
-    - npx cypress run --record --parallel --group $STAGE_NAME --browser chrome --spec "cypress/integration/webtest/*.feature"
+    # For record on Cypress Dashboard
+    # - npx cypress run --record --parallel --group $STAGE_NAME --browser chrome --spec "cypress/integration/webtest/*.feature"
+  
+    # Not record
+    - npx cypress run --group $STAGE_NAME --browser chrome --spec "cypress/integration/webtest/*.feature"
+    
     # after all tests finish running we need
     # to kill all background jobs (like "npm start &")
     - kill $(jobs -p) || true
 
 apitest: &apitest
   script:
-    # print all Travis environment variables for debugging
-    # - $(npm bin)/print-env TRAVIS
-    - npx cypress run --record --parallel --group $STAGE_NAME --spec "cypress/integration/apitest/*.feature"
+    # For record on Cypress Dashboard
+    # - npx cypress run --record --parallel --group $STAGE_NAME --spec "cypress/integration/apitest/*.feature"
+    
+    # Not record
+    - npx cypress run --group $STAGE_NAME --spec "cypress/integration/apitest/*.feature"
+    
     # after all tests finish running we need
     # to kill all background jobs (like "npm start &")
     - kill $(jobs -p) || true
