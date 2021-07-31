@@ -30,7 +30,7 @@ webtest: &webtest
     # - npx cypress run --record --parallel --group $STAGE_NAME --browser chrome --spec "cypress/integration/webtest/*.feature"
   
     # Not record
-    - npx cypress run --group $STAGE_NAME --browser chrome --spec "cypress/integration/webtest/*.feature"
+    - npx cypress run --browser chrome --spec "cypress/integration/webtest/*.feature"
     
     # after all tests finish running we need
     # to kill all background jobs (like "npm start &")
@@ -42,7 +42,7 @@ apitest: &apitest
     # - npx cypress run --record --parallel --group $STAGE_NAME --spec "cypress/integration/apitest/*.feature"
     
     # Not record
-    - npx cypress run --group $STAGE_NAME --spec "cypress/integration/apitest/*.feature"
+    - npx cypress run --spec "cypress/integration/apitest/*.feature"
     
     # after all tests finish running we need
     # to kill all background jobs (like "npm start &")
