@@ -32,7 +32,7 @@ webtest: &webtest
 apitest: &apitest
   script:
     # print all Travis environment variables for debugging
-    - $(npm bin)/print-env TRAVIS
+    # - $(npm bin)/print-env TRAVIS
     - npx cypress run --record --parallel --group $STAGE_NAME --spec "cypress/integration/apitest/*.feature"
     # after all tests finish running we need
     # to kill all background jobs (like "npm start &")
@@ -43,15 +43,18 @@ jobs:
     # we have multiple jobs to execute using just a single stage
     # but we can pass group name via environment variable to Cypress test runner
     - stage: test
+      name: API Test on 1 Thread
       env:
         - STAGE_NAME="1x API Test"
       <<: *apitest
     # run tests in parallel by including several test jobs with same name variable
     - stage: test
+      name: Web Test on 2 Thread - First
       env:
         - STAGE_NAME="2x-chrome Web Test"
       <<: *webtest
     - stage: test
+      name: Web Test on 2 Thread - Second
       env:
         - STAGE_NAME="2x-chrome Web Test"
       <<: *webtest
