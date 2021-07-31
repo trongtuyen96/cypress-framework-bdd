@@ -1,45 +1,22 @@
 image: cypress/browsers:node14.15.0-chrome86-ff82
 
-login-test: &login-test
-  name: "Login Test"
+web-test: &web-test
+  name: "Web Test"
   caches:
     - cypress
     - node
   script:
-    - npx cypress run --browser chrome --spec "cypress/integration/webtest/Login.feature"
+    - npx cypress run --browser chrome --spec "cypress/integration/webtest/*.feature"
+    # - npx cypress run --browser chrome --record --parallel --group "Web-Test" --spec "cypress/integration/webtest/*.feature" --ci-build-id $BITBUCKET_BUILD_NUMBER
 
-postsearch-test: &postsearch-test
-  name: "Post Search Test"
+api-test: &api-test
+  name: "API Test"
   caches:
     - cypress
     - node
   script:
-    - npx cypress run --browser chrome --spec "cypress/integration/webtest/PostSearch.feature"
-
-api-test-get: &api-test-get
-  name: "API Test GET"
-  caches:
-    - cypress
-    - node
-  script:
-    - npx cypress run --spec "cypress/integration/apitest/API-GET.feature"
-
-api-test-post: &api-test-post
-  name: "API Test POST"
-  caches:
-    - cypress
-    - node
-  script:
-    - npx cypress run --spec "cypress/integration/apitest/API-POST.feature"
-
-api-test-put: &api-test-put
-  name: "API Test PUT"
-  caches:
-    - cypress
-    - node
-  script:
-    - npx cypress run --spec "cypress/integration/apitest/API-PUT.feature"
-
+    - npx cypress run --spec "cypress/integration/apitest/*.feature"
+    # - npx cypress run --record --parallel --group "API-Test" --spec "cypress/integration/apitest/*.feature" --ci-build-id $BITBUCKET_BUILD_NUMBER
 pipelines:
   default:
     - step:
@@ -53,17 +30,13 @@ pipelines:
         #   - build/**
     - parallel:
         - step:
-            <<: *login-test
+            <<: *web-test
         - step:
-            <<: *postsearch-test
+            <<: *web-test
         - step:
-            <<: *api-test-get
+            <<: *api-test
         - step:
-            <<: *api-test-get
-        - step:
-            <<: *api-test-post
-        - step:
-            <<: *api-test-put
+            <<: *api-test
        
 definitions:
   caches:

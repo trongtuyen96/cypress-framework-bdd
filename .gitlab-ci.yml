@@ -35,6 +35,7 @@ testWeb:
   stage: test
   script:
     - npx cypress run --browser chrome --spec "cypress/integration/webtest/*.feature"
+    # - npx cypress run --record --parallel --browser chrome --spec "cypress/integration/webtest/*.feature"
 
 testApi:
   image: cypress/browsers:node14.15.0-chrome86-ff82
@@ -42,3 +43,4 @@ testApi:
   parallel: 3
   script:
     - npx cypress run --spec "cypress/integration/apitest/*.feature"
+    # - npx cypress run --record --parallel --spec "cypress/integration/apitest/*.feature"
