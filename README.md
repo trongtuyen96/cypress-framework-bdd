@@ -10,6 +10,9 @@
   <a alt="CircleCI" href="https://app.circleci.com/pipelines/github/trongtuyen96/cypress-framework-bdd">
     <img src="https://circleci.com/gh/trongtuyen96/cypress-framework-bdd.svg?style=svg&circle-token=7400bd5a15daed35237400a49b510ad756a005a0">
   </a>
+  <a alt="TravisCI" href="https://travis-ci.com/trongtuyen96/cypress-framework-bdd">
+    <img src="https://travis-ci.com/trongtuyen96/cypress-framework-bdd.svg?branch=main">
+  </a>
   <a alt="CypressFrameworkBDD" href="https://dashboard.cypress.io/projects/ukewho/runs">
     <img src="https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/ukewho/main&style=flat&logo=cypress">
   </a>
@@ -60,6 +63,8 @@
 :star: 20/07/2021: Add Github Workflows to pull code from Github and sync to Gitlab
 
 :star: 24/07/2021: Update parallel run with Cypress Dashboard
+
+:star: 31/07/2021: Add TravisCI
 
 ## Features
 
