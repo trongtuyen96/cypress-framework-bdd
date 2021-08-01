@@ -13,6 +13,9 @@
   <a alt="TravisCI" href="https://travis-ci.com/trongtuyen96/cypress-framework-bdd">
     <img src="https://travis-ci.com/trongtuyen96/cypress-framework-bdd.svg?branch=main">
   </a>
+  <a alt="GitlabCI" href="https://gitlab.com/trongtuyen96/cypress-framework-bdd/-/pipelines">
+    <img src="https://gitlab.com/trongtuyen96/cypress-framework-bdd/badges/main/pipeline.svg">
+  </a>
   <a alt="CypressFrameworkBDD" href="https://dashboard.cypress.io/projects/ukewho/runs">
     <img src="https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/ukewho/main&style=flat&logo=cypress">
   </a>
@@ -26,6 +29,7 @@
     <img src="https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/sync-gitlab-https.yml/badge.svg">
   </a>
 </p>
+
 
 ## Table of Contents
 
