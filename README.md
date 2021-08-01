@@ -284,7 +284,8 @@ More details: https://docs.cypress.io/guides/guides/command-line
 ### Parallel run with CI provider and Cypress Dashboard
 
 <p align="center">
-	Cypress Dashboard
+	<a>Cypress Dashboard</a>
+	
     <a alt="CypressFrameworkBDD" href="https://dashboard.cypress.io/projects/ukewho/runs">
         <img src="https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/ukewho/main&style=flat&logo=cypress">
     </a>
@@ -305,9 +306,9 @@ GitlabCI | [![GitlabCI](https://github.com/trongtuyen96/cypress-framework-bdd/ac
 
 Github Actions | [![Github - Main](https://gitlab.com/trongtuyen96/cypress-framework-bdd/badges/main/pipeline.svg)](https://gitlab.com/trongtuyen96/cypress-framework-bdd/-/pipelines) | [main.yml](.github/workflows/main.yml) | Comment out code lines with record on Cypress Dashboard
 
-| [![Github - Sync Bitbucket](https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/sync-bitbucket-https.yml/badge.svg)](https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/sync-bitbucket-https.yml) | [sync-bitbucket-https.yml](.github/workflows/sync-bitbucket-https.yml) | To sync code to Bitbucket
+ | [![Github - Sync Bitbucket](https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/sync-bitbucket-https.yml/badge.svg)](https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/sync-bitbucket-https.yml) | [sync-bitbucket-https.yml](.github/workflows/sync-bitbucket-https.yml) | To sync code to Bitbucket
 
-| [![Github - Sync Gitlab](https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/sync-gitlab-https.yml/badge.svg)](https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/sync-gitlab-https.yml) | [sync-gitlab-https.yml](.github/workflows/sync-gitlab-https.yml) | To sync code to Gitlab
+ | [![Github - Sync Gitlab](https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/sync-gitlab-https.yml/badge.svg)](https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/sync-gitlab-https.yml) | [sync-gitlab-https.yml](.github/workflows/sync-gitlab-https.yml) | To sync code to Gitlab
 	
 ## Author
 	
