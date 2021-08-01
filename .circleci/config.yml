@@ -2,7 +2,7 @@ version: 2.1
 orbs:
   # use latest 1.x.y version of the orb
   # best practice is to use an exact version
-  cypress: cypress-io/cypress@1.16.1
+  cypress: cypress-io/cypress@1.28.0
 
 executors:
   chrome80-ff72:
@@ -18,10 +18,8 @@ workflows:
             branches:
               only: main
           name: Checkout and install dependencies
-          # it is a single job, so no need to
-          # cache workspace (faster)
-          no-workspace: true
-
+          
+      
       # run WeUI Test inside Docker image with Chrome pre-installed
       - cypress/run:
           filters:
@@ -37,6 +35,8 @@ workflows:
           parallel: true
           parallelism: 2
           group: WebUI Test
+          ci-build-id: ${CIRCLE_SHA1}
+          spec: cypress/integration/webtest/*.feature
           post-steps:
             - store_test_results:
                 path: cypress/reports
@@ -60,6 +60,8 @@ workflows:
           parallel: true
           parallelism: 3
           group: 'API Test'
+          ci-build-id: ${CIRCLE_SHA1}
+          spec: cypress/integration/apitest/*.feature
           post-steps:
             - store_test_results:
                 path: cypress/reports
