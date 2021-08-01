@@ -1,5 +1,8 @@
 language: node_js
 
+# Remove to run on all branches
+# Set up build on pull request on TravisCI for auto-merge and test on pull request
+# As TravisCI integrated with Github, it get both push and pull request
 branches:
   only:
   - main
@@ -29,7 +32,7 @@ webtest: &webtest
     # For record on Cypress Dashboard
     # - npx cypress run --record --parallel --group $STAGE_NAME --browser chrome --spec "cypress/integration/webtest/*.feature"
   
-    # Not record
+    # Not record, and not parallel on TravisCI
     - npx cypress run --browser chrome --spec "cypress/integration/webtest/*.feature"
     
     # after all tests finish running we need
@@ -41,7 +44,7 @@ apitest: &apitest
     # For record on Cypress Dashboard
     # - npx cypress run --record --parallel --group $STAGE_NAME --spec "cypress/integration/apitest/*.feature"
     
-    # Not record
+    # Not record, and not parallel on TravisCI
     - npx cypress run --spec "cypress/integration/apitest/*.feature"
     
     # after all tests finish running we need
