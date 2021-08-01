@@ -17,6 +17,7 @@ workflows:
           filters:
             branches:
               only: main
+          name: Install
       # run WeUI Test inside Docker image with Chrome pre-installed
       - cypress/run:
           filters:
@@ -55,7 +56,7 @@ workflows:
           no-workspace: true
           record: true
           parallel: true
-          parallelism: 3
+          parallelism: 2
           group: 'API Test'
           ci-build-id: ${CIRCLE_SHA1}
           spec: cypress/integration/apitest/*.feature
