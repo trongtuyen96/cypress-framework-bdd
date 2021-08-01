@@ -18,6 +18,7 @@ workflows:
             branches:
               only: main
           name: Install
+          
       # run WeUI Test inside Docker image with Chrome pre-installed
       - cypress/run:
           filters:
@@ -27,7 +28,6 @@ workflows:
           requires:
             - Install
           executor: chrome80-ff72
-          no-workspace: true
           record: true
           browser: chrome
           parallel: true
@@ -53,7 +53,6 @@ workflows:
           name: API Test
           requires:
             - Install
-          no-workspace: true
           record: true
           parallel: true
           parallelism: 2
