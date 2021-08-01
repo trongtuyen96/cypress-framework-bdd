@@ -13,15 +13,13 @@ workflows:
   build-and-test:
     jobs:
       # checks out code and installs dependencies once
-      - cypress/install
-          filters:
-            branches:
-              only: main
+      - cypress/install:
+          branches:
+            only: main
       # run WeUI Test inside Docker image with Chrome pre-installed
       - cypress/run:
-          filters:
-            branches:
-              only: main
+          branches:
+            only: main
           name: WebUI Test
           requires:
             - cypress/install
@@ -46,9 +44,8 @@ workflows:
             
        # run API Test
       - cypress/run:
-          filters:
-            branches:
-              only: main
+          branches:
+            only: main
           name: API Test
           requires:
             - cypress/install
