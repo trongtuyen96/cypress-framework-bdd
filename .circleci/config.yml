@@ -1,116 +1,71 @@
 version: 2.1
+orbs:
+  # use latest 1.x.y version of the orb
+  # best practice is to use an exact version
+  cypress: cypress-io/cypress@1.16.1
 
-# build job parameters as a template
-defaults: &defaults
-  working_directory: ~/app
-  docker:
-    # the Docker image with Cypress dependencies
-    - image: cypress/included:8.1.0
-      environment:
-        ## this enables colors in the output
-        TERM: xterm
-
-jobs:
-  build:
-    <<: *defaults
-    parallelism: 1
-    steps:
-      - checkout
-      - run: pwd
-      - run: ls
-      - restore_cache:
-          # See the configuration reference documentation for more details on using restore_cache and save_cache steps
-          # https://circleci.com/docs/2.0/configuration-reference/?section=reference#save_cache
-          keys:
-            - v2-deps-{{ .Branch }}-{{ checksum "package-lock.json" }}
-            - v2-deps-{{ .Branch }}-
-            - v2-deps-
-      - run:
-          name: install packages
-          command: npm ci
-      - save_cache:
-          key: v2-deps-{{ .Branch }}-{{ checksum "package-lock.json" }}
-          paths:
-            - ~/.npm
-            - ~/.cache
-      - persist_to_workspace:
-          root: ~/
-          paths:
-            - .cache
-            - app
-
-  testApi:
-    <<: *defaults
-    parallelism: 3 
-    steps:
-      - attach_workspace:
-          at: ~/
-      - run:
-          name: Split test
-          command: 
-            circleci tests glob "**/integration/apitest/*.feature" | circleci tests split --split-by=timings
-      - run:
-          name: Running E2E tests with multiple reporters for Api
-          command: npm run test-api-circleci
-      - store_test_results:
-          path: cypress/reports
-      - store_artifacts:
-          path: cypress/reports
-      - store_artifacts:
-          path: cypress/videos
-      - store_artifacts:
-          path: cypress/screenshots
-
-  testWeb:
-    <<: *defaults
-    parallelism: 2
-    steps:
-      - attach_workspace:
-          at: ~/
-      - run:
-          name: Running E2E tests with multiple reporters for Web
-          command: npm run test-web-circleci
-      - store_test_results:
-          path: cypress/reports
-      - store_artifacts:
-          path: cypress/reports
-      - store_artifacts:
-          path: cypress/videos
-      - store_artifacts:
-          path: cypress/screenshots
+executors:
+  chrome80-ff72:
+    docker:
+      - image: 'cypress/browsers:node13.6.0-chrome80-ff72'
 
 workflows:
   build-and-test:
     jobs:
-      - build:
+      # checks out code and installs dependencies once
+      - cypress/install:
           filters:
             branches:
               only: main
-      - testApi:
+          name: Checkout and install dependencies
+          # it is a single job, so no need to
+          # cache workspace (faster!)
+          no-workspace: true
+
+      # run WeUI Test inside Docker image with Chrome pre-installed
+      - cypress/run:
+          filters:
+            branches:
+              only: main
+          name: WebUI Test
           requires:
-            - build
-          filters:
-            branches:
-              only: main
-      - testWeb:
-          requires:
-            - build
-          filters:
-            branches:
-              only: main
+            - cypress/install
+          executor: chrome80-ff72
+          no-workspace: true
+          record: true
+          browser: chrome
+          parallel: true
+          parallelism: 2
+          group: WebUI Test
+          post-steps:
+            - store_test_results:
+                path: cypress/reports
+            - store_artifacts:
+                path: cypress/reports
+            - store_artifacts:
+                path: cypress/videos
+            - store_artifacts:
+                path: cypress/screenshots
             
-  scheduled-workflow:
-    triggers:
-      - schedule:
-          cron: "0 16 20 * *"
+       # run API Test
+      - cypress/run:
           filters:
             branches:
               only: main
-    jobs:
-      - build
-      - testApi:
+          name: API Test
           requires:
-            - build
-      - testWeb:
-          requires:
-            - build
+            - cypress/install
+          no-workspace: true
+          record: true
+          parallel: true
+          parallelism: 3
+          group: 'API Test'
+          post-steps:
+            - store_test_results:
+                path: cypress/reports
+            - store_artifacts:
+                path: cypress/reports
+            - store_artifacts:
+                path: cypress/videos
+            - store_artifacts:
+                path: cypress/screenshots
