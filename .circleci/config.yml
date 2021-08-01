@@ -19,7 +19,7 @@ workflows:
               only: main
           name: Checkout and install dependencies
           # it is a single job, so no need to
-          # cache workspace (faster!)
+          # cache workspace (faster)
           no-workspace: true
 
       # run WeUI Test inside Docker image with Chrome pre-installed
