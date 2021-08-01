@@ -51,7 +51,7 @@ jobs:
         if: always()
         with:
           name: cypress-reports
-          path: cypress/report
+          path: cypress/reports
 
   web-test:
     runs-on: ubuntu-latest
@@ -90,6 +90,6 @@ jobs:
         if: always()
         with:
           name: cypress-reports
-          path: cypress/report
+          path: cypress/reports
   
   

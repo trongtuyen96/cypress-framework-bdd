@@ -45,10 +45,10 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
-      - run:
-          name: Split test
-          command: 
-            circleci tests glob "**/integration/apitest/*.feature" | circleci tests split --split-by=timings
+      # - run:
+      #     name: Split test
+      #     command: 
+      #       circleci tests glob "**/integration/apitest/*.feature" | circleci tests split --split-by=timings
       - run:
           name: Running E2E tests with multiple reporters for Api
           command: npm run test-api-circleci
