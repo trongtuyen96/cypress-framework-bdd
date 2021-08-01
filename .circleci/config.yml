@@ -18,8 +18,8 @@ workflows:
             branches:
               only: main
           name: Checkout and install dependencies
+          build: npm run test
           
-      
       # run WeUI Test inside Docker image with Chrome pre-installed
       - cypress/run:
           filters:
