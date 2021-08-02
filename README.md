@@ -281,6 +281,26 @@ More details: https://docs.cypress.io/guides/guides/command-line
 
 5. After executions, reports are located in cypress/reports
 
+### Parallel run with CI provider and Cypress Dashboard
+
+<p align="center">
+Cypress Dashboard
+	<br>
+    <a alt="CypressFrameworkBDD" href="https://dashboard.cypress.io/projects/ukewho/runs">
+        <img src="https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/ukewho/main&style=flat&logo=cypress">
+    </a>
+</p>
+		
+CI | Build status | Config File | Set up Cypress Dashboard
+:--- | :--- | :--- | :---
+CircleCI | [![CircleCI](https://circleci.com/gh/trongtuyen96/cypress-framework-bdd.svg?style=svg&circle-token=7400bd5a15daed35237400a49b510ad756a005a0)](https://app.circleci.com/pipelines/github/trongtuyen96/cypress-framework-bdd) | [config.yml](.circleci/config.yml) | Already set up with CYPRESS_RECORD_KEY as enviroment variable in CircleCI
+CircleCI - v2 Config without Orbs| Not activated | [.circleci/config-without-orbs.yml](config-without-orbs.yml) | Already set up with CYPRESS_RECORD_KEY as enviroment variable in CircleCI
+TravisCI | [![TravisCI](https://travis-ci.com/trongtuyen96/cypress-framework-bdd.svg?branch=main)](https://travis-ci.com/trongtuyen96/cypress-framework-bdd) | [.travis.yml](.travis.yml) | Comment out code lines with record on Cypress Dashboard
+GitlabCI | [![GitlabCI](https://gitlab.com/trongtuyen96/cypress-framework-bdd/badges/main/pipeline.svg)](https://gitlab.com/trongtuyen96/cypress-framework-bdd/-/pipelines) | [.gitlab-ci.yml](.gitlab-ci.yml) | Comment out code lines with record on Cypress Dashboard
+Github Actions | [![Github - Main](https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/main.yml/badge.svg)](https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/main.yml) | [main.yml](.github/workflows/main.yml) | Comment out code lines with record on Cypress Dashboard
+Github Actions - Sync Bitbucket | [![Github - Sync Bitbucket](https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/sync-bitbucket-https.yml/badge.svg)](https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/sync-bitbucket-https.yml) | [sync-bitbucket-https.yml](.github/workflows/sync-bitbucket-https.yml) | To sync code to Bitbucket
+Github Actions - Sync Gitlab | [![Github - Sync Gitlab](https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/sync-gitlab-https.yml/badge.svg)](https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/sync-gitlab-https.yml) | [sync-gitlab-https.yml](.github/workflows/sync-gitlab-https.yml) | To sync code to Gitlab
+	
 ## Author
 	
 <h4 align="center">
