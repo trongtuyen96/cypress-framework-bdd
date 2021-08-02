@@ -281,6 +281,29 @@ More details: https://docs.cypress.io/guides/guides/command-line
 
 5. After executions, reports are located in cypress/reports
 
+### BDD Test Cases with Cucumber
+	
+1. Install cypress-cucumber-preprocessor
+```bash
+    npm install --save-dev cypress-cucumber-preprocessor
+```
+2. Set up processor in /plugin/index.js
+```bash
+    const cucumber = require('cypress-cucumber-preprocessor').default
+
+    module.exports = (on, config) => {
+        on('file:preprocessor', cucumber())
+    }
+```
+3. Add config for test files in cypress.json
+```bash
+    {
+    "testFiles": "**/*.feature"
+    }
+```
+4. Feature test file can be executed via Cypress Test Runner or via Commands
+5. Head to <a href="https://www.npmjs.com/package/cypress-cucumber-preprocessor</a> for more configurations
+
 ### Parallel run with CI provider and Cypress Dashboard
 
 <p align="center">
