@@ -20,7 +20,7 @@ on:
 jobs:
    
   syncbb:
-    name: Synch from Github to Gitlab https
+    name: Sync from Github to Gitlab https
     runs-on: ubuntu-latest
     steps:
       - name: pull the github repo
