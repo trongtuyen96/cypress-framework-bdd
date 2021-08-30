@@ -9,7 +9,7 @@
     "automerge": false
   },
   "minor": {
-    "automerge": true
+    "automerge": false
   },
   "labels": [
     "type: dependencies",
@@ -20,6 +20,6 @@
   "prHourlyLimit": 2,
   "timezone": "America/New_York",
   "schedule": [
-    "every weekend"
+    "every 3 months on the first day of the month"
   ]
 }
