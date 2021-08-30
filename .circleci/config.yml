@@ -2,7 +2,7 @@ version: 2.1
 orbs:
   # use latest 1.x.y version of the orb
   # best practice is to use an exact version
-  cypress: cypress-io/cypress@1.28.0
+  cypress: cypress-io/cypress@1.29.0
 
 executors:
   chrome80-ff72:
