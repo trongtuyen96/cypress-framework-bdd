@@ -40,7 +40,7 @@
     "cypress-mochawesome-reporter": "2.2.1",
     "cypress-multi-reporters": "1.5.0",
     "cypress-plugin-snapshots": "1.4.4",
-    "cypress-terminal-report": "3.3.0",
+    "cypress-terminal-report": "3.3.2",
     "cypress-xpath": "1.6.2",
     "mocha-junit-reporter": "2.0.0"
   }
