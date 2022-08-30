@@ -53,7 +53,7 @@ module.exports = (on, config) => {
   // for cypress-plugin-snapshots
   initPlugin(on, config);
 
-  // for cypress-audit with lighthouse and pa11y
+  // for cypress-audit with lighthouse, pa11y
   on('before:browser:launch', (browser = {}, launchOptions) => {
     prepareAudit(launchOptions);
   });
