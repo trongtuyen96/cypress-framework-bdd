@@ -52,7 +52,7 @@
 
 :star: 09/07/2021: Add cypress-audit with Lighthouse and Pa11y for performance testing
 
-:star: 11/07/2021: Add CircleCI with cypress docker images
+:star: 11/07/2021: Add CircleCI with cypress Docker images
 
 :star: 12/07/2021: Add CircleCI with conditional workflows
 
