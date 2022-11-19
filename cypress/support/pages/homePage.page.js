@@ -10,6 +10,10 @@ class HomePage {
 
         // Special case: Wait for page fully loaded and rendered
         cy.xpath(this.getHomePageElements().POST_IMAGE_LOADED, {timeout: 30000});
+        
+        // To avoid logic did not load in time
+        cy.wait(10000);
+        
         return this;
     }
 

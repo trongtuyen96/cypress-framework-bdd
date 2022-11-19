@@ -10,7 +10,7 @@
   <a alt="CircleCI" href="https://app.circleci.com/pipelines/github/trongtuyen96/cypress-framework-bdd">
     <img src="https://circleci.com/gh/trongtuyen96/cypress-framework-bdd.svg?style=svg&circle-token=7400bd5a15daed35237400a49b510ad756a005a0">
   </a>
-  <a alt="TravisCI" href="https://travis-ci.com/trongtuyen96/cypress-framework-bdd">
+  <a alt="TravisCI" href="https://app.travis-ci.com/github/trongtuyen96/cypress-framework-bdd">
     <img src="https://travis-ci.com/trongtuyen96/cypress-framework-bdd.svg?branch=main">
   </a>
   <a alt="GitlabCI" href="https://gitlab.com/trongtuyen96/cypress-framework-bdd/-/pipelines">
@@ -318,7 +318,7 @@ CI | Build status | Config File | Set up Cypress Dashboard
 :--- | :--- | :--- | :---
 CircleCI | [![CircleCI](https://circleci.com/gh/trongtuyen96/cypress-framework-bdd.svg?style=svg&circle-token=7400bd5a15daed35237400a49b510ad756a005a0)](https://app.circleci.com/pipelines/github/trongtuyen96/cypress-framework-bdd) | [config.yml](.circleci/config.yml) | Already set up with CYPRESS_RECORD_KEY as enviroment variable in CircleCI
 CircleCI - v2 Config without Orbs| Not activated | [.circleci/config-without-orbs.yml](config-without-orbs.yml) | Already set up with CYPRESS_RECORD_KEY as enviroment variable in CircleCI
-TravisCI | [![TravisCI](https://travis-ci.com/trongtuyen96/cypress-framework-bdd.svg?branch=main)](https://travis-ci.com/trongtuyen96/cypress-framework-bdd) | [.travis.yml](.travis.yml) | Comment out code lines with record on Cypress Dashboard
+TravisCI | [![TravisCI](https://travis-ci.com/trongtuyen96/cypress-framework-bdd.svg?branch=main)](https://app.travis-ci.com/github/trongtuyen96/cypress-framework-bdd) | [.travis.yml](.travis.yml) | Comment out code lines with record on Cypress Dashboard
 GitlabCI | [![GitlabCI](https://gitlab.com/trongtuyen96/cypress-framework-bdd/badges/main/pipeline.svg)](https://gitlab.com/trongtuyen96/cypress-framework-bdd/-/pipelines) | [.gitlab-ci.yml](.gitlab-ci.yml) | Comment out code lines with record on Cypress Dashboard
 Github Actions | [![Github - Main](https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/main.yml/badge.svg)](https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/main.yml) | [main.yml](.github/workflows/main.yml) | Comment out code lines with record on Cypress Dashboard
 Github Actions - Sync Bitbucket | [![Github - Sync Bitbucket](https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/sync-bitbucket-https.yml/badge.svg)](https://github.com/trongtuyen96/cypress-framework-bdd/actions/workflows/sync-bitbucket-https.yml) | [sync-bitbucket-https.yml](.github/workflows/sync-bitbucket-https.yml) | To sync code to Bitbucket
